@@ -32,8 +32,9 @@
       <li><a href="#haldi">Haldi</a></li>
       <li><a href="#wedding">Wedding</a></li>
       <li><a href="#bhojan">Bhojan</a></li>
-      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#rsvp">Blessings</a></li>
       <li><a href="#family">Family</a></li>
+      <li><a href="#" id="adminToggleNav" class="admin-lock" title="Admin">🔒</a></li>
     </ul>
     <div class="nav-hamburger" id="navHamburger">
       <span></span><span></span><span></span>
@@ -337,10 +338,13 @@
     <!-- Blessings Wall Display -->
     <div class="blessings-wall reveal" id="blessingsWall">
       <h3 class="blessings-wall-title">🌼 Wall of Love 🌼</h3>
-      <div class="blessings-grid" id="blessingsGrid">
-        <!-- Blessings will be dynamically inserted here -->
+      <div class="blessings-loading" id="blessingsLoading">
+        <div class="loading-spinner"></div>
+        <p>Loading blessings...</p>
       </div>
-      <p class="blessings-empty" id="blessingsEmpty">Be the first to leave a blessing! 🌸</p>
+      <div class="blessings-grid" id="blessingsGrid"></div>
+      <p class="blessings-empty" id="blessingsEmpty" style="display:none;">Be the first to leave a blessing! 🌸</p>
+      <div class="blessings-count" id="blessingsCount"></div>
     </div>
   </section>
 
@@ -483,6 +487,55 @@
       <p class="footer-copy">Crafted with ❤️ and blessings</p>
     </div>
   </footer>
+
+  <!-- Admin Login Modal -->
+  <div class="admin-modal-overlay" id="adminModal">
+    <div class="admin-modal">
+      <button class="admin-modal-close" id="adminModalClose">&times;</button>
+      <h3>🔐 Admin Access</h3>
+      <p>Enter the admin password to manage blessings</p>
+      <input type="password" id="adminPassword" placeholder="Enter password" />
+      <button class="admin-login-btn" id="adminLoginBtn">Unlock Admin</button>
+      <p class="admin-error" id="adminError"></p>
+    </div>
+  </div>
+
+  <!-- Admin Panel -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-header">
+      <h3>🛡️ Admin Panel</h3>
+      <div class="admin-header-right">
+        <span class="admin-badge" id="adminBlessingCount">0 blessings</span>
+        <button class="admin-close-btn" id="adminCloseBtn">&times;</button>
+      </div>
+    </div>
+    <div class="admin-body" id="adminBody">
+      <!-- Admin blessing cards loaded dynamically -->
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script>
+    // 🔥 PASTE YOUR FIREBASE CONFIG HERE
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Admin password (change this to your own secret!)
+    const ADMIN_PASSWORD = "neha_prasad_2026";
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
 
   <script src="script.js"></script>
 </body>

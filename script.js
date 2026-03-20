@@ -1,6 +1,6 @@
 /* ============================================================
    WEDDING WEBSITE JS — Neha & Prasad
-   Animations, Countdown, Petals, Blessings Wall, Scroll Reveal
+   Firebase Firestore Blessings, Countdown, Admin, Animations
    ============================================================ */
 
 /* ---- PETAL RAIN ---- */
@@ -13,17 +13,11 @@
     const el = document.createElement('span');
     el.className = 'petal';
     el.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-
-    const size = 16 + Math.random() * 18;
-    const left = Math.random() * 100;
-    const duration = 8 + Math.random() * 12;
-    const delay = Math.random() * 12;
-
     el.style.cssText = `
-      left: ${left}vw;
-      font-size: ${size}px;
-      animation-duration: ${duration}s;
-      animation-delay: ${delay}s;
+      left: ${Math.random() * 100}vw;
+      font-size: ${16 + Math.random() * 18}px;
+      animation-duration: ${8 + Math.random() * 12}s;
+      animation-delay: ${Math.random() * 12}s;
     `;
     container.appendChild(el);
   }
@@ -35,9 +29,8 @@
 (function () {
   const container = document.getElementById('confettiContainer');
   const colors = ['#E8A020', '#6B1414', '#F4832A', '#F5DDD3', '#F5C518', '#FFB6C1', '#98FB98'];
-  const COUNT = 30;
 
-  for (let i = 0; i < COUNT; i++) {
+  for (let i = 0; i < 30; i++) {
     const el = document.createElement('div');
     el.className = 'confetti-piece';
     el.style.cssText = `
@@ -53,94 +46,66 @@
   }
 })();
 
-/* ---- KIDS BADGE STAGGER DELAY ---- */
+/* ---- KIDS BADGE STAGGER ---- */
 document.querySelectorAll('.kid-badge').forEach((badge, i) => {
   badge.style.setProperty('--delay', `${i * 0.15}s`);
 });
 
 /* ---- COUNTDOWN TIMER ---- */
 (function () {
-  // Wedding date: Wednesday, 22 April 2026 at 11:00 AM IST (UTC+5:30)
   const weddingDate = new Date('2026-04-22T11:00:00+05:30').getTime();
 
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
+  const els = {
+    days: document.getElementById('days'),
+    hours: document.getElementById('hours'),
+    minutes: document.getElementById('minutes'),
+    seconds: document.getElementById('seconds'),
+  };
+  const cards = {
+    days: document.getElementById('days-card'),
+    hours: document.getElementById('hours-card'),
+    minutes: document.getElementById('minutes-card'),
+    seconds: document.getElementById('seconds-card'),
+  };
   const sublabel = document.getElementById('countdown-sublabel');
   const countdownLabel = document.querySelector('.countdown-label');
+  let prev = { days: -1, hours: -1, minutes: -1, seconds: -1 };
 
-  const daysCard = document.getElementById('days-card');
-  const hoursCard = document.getElementById('hours-card');
-  const minutesCard = document.getElementById('minutes-card');
-  const secondsCard = document.getElementById('seconds-card');
-
-  let prevValues = { days: -1, hours: -1, minutes: -1, seconds: -1 };
-
-  function flipAnimate(card) {
+  function flip(card) {
     card.style.transform = 'scale(1.15)';
     card.style.boxShadow = '0 0 20px rgba(232,160,32,0.6)';
-    setTimeout(() => {
-      card.style.transform = '';
-      card.style.boxShadow = '';
-    }, 200);
+    setTimeout(() => { card.style.transform = ''; card.style.boxShadow = ''; }, 200);
   }
 
-  function updateCountdown() {
-    const now = Date.now();
-    const diff = weddingDate - now; // Positive if future
-    const isUpcoming = diff > 0;
-
-    const absDiff = Math.abs(diff);
-    const totalSeconds = Math.floor(absDiff / 1000);
-    const secs = totalSeconds % 60;
-    const mins = Math.floor(totalSeconds / 60) % 60;
-    const hrs = Math.floor(totalSeconds / 3600) % 24;
-    const days = Math.floor(totalSeconds / 86400);
-
+  function tick() {
+    const diff = weddingDate - Date.now();
+    const upcoming = diff > 0;
+    const abs = Math.abs(diff);
+    const s = Math.floor(abs / 1000) % 60;
+    const m = Math.floor(abs / 60000) % 60;
+    const h = Math.floor(abs / 3600000) % 24;
+    const d = Math.floor(abs / 86400000);
     const pad = n => String(n).padStart(2, '0');
 
-    if (secs !== prevValues.seconds) {
-      secondsEl.textContent = pad(secs);
-      flipAnimate(secondsCard);
-    }
-    if (mins !== prevValues.minutes) {
-      minutesEl.textContent = pad(mins);
-      flipAnimate(minutesCard);
-    }
-    if (hrs !== prevValues.hours) {
-      hoursEl.textContent = pad(hrs);
-      flipAnimate(hoursCard);
-    }
-    if (days !== prevValues.days) {
-      daysEl.textContent = pad(days);
-      flipAnimate(daysCard);
-    }
+    if (s !== prev.seconds) { els.seconds.textContent = pad(s); flip(cards.seconds); }
+    if (m !== prev.minutes) { els.minutes.textContent = pad(m); flip(cards.minutes); }
+    if (h !== prev.hours) { els.hours.textContent = pad(h); flip(cards.hours); }
+    if (d !== prev.days) { els.days.textContent = pad(d); flip(cards.days); }
+    prev = { days: d, hours: h, minutes: m, seconds: s };
 
-    prevValues = { days, hours: hrs, minutes: mins, seconds: secs };
-
-    if (isUpcoming) {
-      sublabel.textContent = 'Until two hearts become one...';
-      countdownLabel.textContent = 'Counting Down to the Big Day 💍';
-    } else {
-      sublabel.textContent = 'The happy couple tied the knot! 🎉';
-      countdownLabel.textContent = '🕐 Since the Auspicious Day';
-    }
+    sublabel.textContent = upcoming ? 'Until two hearts become one...' : 'The happy couple tied the knot! 🎉';
+    countdownLabel.textContent = upcoming ? 'Counting Down to the Big Day 💍' : '🕐 Since the Auspicious Day';
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  tick();
+  setInterval(tick, 1000);
 })();
 
 /* ---- NAVBAR SCROLL EFFECT ---- */
 (function () {
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 })();
 
@@ -150,9 +115,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const target = document.querySelector(link.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      const offset = 70;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
     }
   });
 });
@@ -164,21 +127,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       const isOpen = navLinks.style.display === 'flex';
-      navLinks.style.cssText = isOpen
-        ? ''
-        : `
-          display: flex;
-          flex-direction: column;
-          position: fixed;
-          top: 60px;
-          left: 0;
-          right: 0;
-          background: rgba(74,13,13,0.98);
-          padding: 1.5rem 2rem;
-          gap: 1.2rem;
-          z-index: 999;
-          border-bottom: 2px solid rgba(232,160,32,0.3);
-        `;
+      navLinks.style.cssText = isOpen ? '' : `
+        display:flex; flex-direction:column; position:fixed; top:60px;
+        left:0; right:0; background:rgba(74,13,13,0.98); padding:1.5rem 2rem;
+        gap:1.2rem; z-index:999; border-bottom:2px solid rgba(232,160,32,0.3);
+      `;
     });
   }
 })();
@@ -186,21 +139,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 /* ---- SCROLL REVEAL ---- */
 (function () {
   const reveals = document.querySelectorAll('.reveal');
-
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    reveals.forEach(el => observer.observe(el));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => obs.observe(el));
   } else {
     reveals.forEach(el => el.classList.add('visible'));
   }
@@ -209,130 +152,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 /* ---- PARALLAX HERO ---- */
 (function () {
   const hero = document.querySelector('.hero');
-
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY < window.innerHeight * 1.5) {
-      if (hero) {
-        hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
-      }
+    if (window.scrollY < window.innerHeight * 1.5 && hero) {
+      hero.style.backgroundPositionY = `${window.scrollY * 0.4}px`;
     }
   }, { passive: true });
-})();
-
-/* ---- BLESSINGS WALL (localStorage) ---- */
-(function () {
-  const STORAGE_KEY = 'neha_prasad_blessings';
-  const nameInput = document.getElementById('guestName');
-  const msgInput = document.getElementById('message');
-  const addBtn = document.getElementById('addBlessingBtn');
-  const whatsappBtn = document.getElementById('whatsappBtn');
-  const grid = document.getElementById('blessingsGrid');
-  const emptyMsg = document.getElementById('blessingsEmpty');
-
-  function getBlessings() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    } catch {
-      return [];
-    }
-  }
-
-  function saveBlessings(blessings) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(blessings));
-  }
-
-  function timeAgo(ts) {
-    const diff = Date.now() - ts;
-    const mins = Math.floor(diff / 60000);
-    if (mins < 1) return 'Just now';
-    if (mins < 60) return `${mins}m ago`;
-    const hrs = Math.floor(mins / 60);
-    if (hrs < 24) return `${hrs}h ago`;
-    const days = Math.floor(hrs / 24);
-    return `${days}d ago`;
-  }
-
-  function renderBlessings() {
-    const blessings = getBlessings();
-    grid.innerHTML = '';
-
-    if (blessings.length === 0) {
-      emptyMsg.style.display = 'block';
-      return;
-    }
-
-    emptyMsg.style.display = 'none';
-
-    // Show newest first
-    blessings.slice().reverse().forEach(b => {
-      const card = document.createElement('div');
-      card.className = 'blessing-card';
-      card.innerHTML = `
-        <div class="blessing-card-name">🌸 ${escapeHTML(b.name)}</div>
-        <div class="blessing-card-msg">"${escapeHTML(b.message)}"</div>
-        <div class="blessing-card-time">${timeAgo(b.timestamp)}</div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  function escapeHTML(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  function shakeFeedback(el) {
-    el.style.borderColor = '#F44';
-    el.style.animation = 'none';
-    el.offsetHeight; // trigger reflow
-    el.style.animation = '';
-    setTimeout(() => el.style.borderColor = '', 1200);
-  }
-
-  // Post blessing to wall
-  addBtn.addEventListener('click', () => {
-    const name = nameInput.value.trim();
-    const message = msgInput.value.trim();
-
-    if (!name) { shakeFeedback(nameInput); nameInput.focus(); return; }
-    if (!message) { shakeFeedback(msgInput); msgInput.focus(); return; }
-
-    const blessings = getBlessings();
-    blessings.push({ name, message, timestamp: Date.now() });
-    saveBlessings(blessings);
-
-    nameInput.value = '';
-    msgInput.value = '';
-    renderBlessings();
-
-    // Quick visual feedback
-    addBtn.textContent = '✅ Posted!';
-    addBtn.disabled = true;
-    setTimeout(() => {
-      addBtn.textContent = '🌸 Post Blessing';
-      addBtn.disabled = false;
-    }, 1500);
-  });
-
-  // Send via WhatsApp
-  whatsappBtn.addEventListener('click', () => {
-    const name = nameInput.value.trim();
-    const message = msgInput.value.trim();
-
-    let text = `🌸 *Wedding Blessings for Neha & Prasad* 🌸\n\n`;
-    if (name) text += `From: ${name}\n`;
-    if (message) text += `Message: ${message}\n`;
-    text += `\n💒 22 April 2026 · Suryamahal Hall, Goregaon East\n`;
-    text += `🌺 Wishing the couple a lifetime of happiness!`;
-
-    const waURL = `https://wa.me/?text=${encodeURIComponent(text)}`;
-    window.open(waURL, '_blank');
-  });
-
-  // Render on load
-  renderBlessings();
 })();
 
 /* ---- CARD HOVER GLOW ---- */
@@ -345,13 +169,271 @@ document.querySelectorAll('.couple-card, .wedding-detail-card, .family-card, .bh
       ? `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.14), rgba(255,255,255,0.06))`
       : `radial-gradient(circle at ${x}% ${y}%, rgba(232,160,32,0.07), rgba(255,255,255,1))`;
   });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.background = '';
-  });
+  card.addEventListener('mouseleave', () => { card.style.background = ''; });
 });
 
-/* ---- SHIMMER REVEAL: delay stagger for section headings ---- */
+/* ---- SHIMMER REVEAL STAGGER ---- */
 document.querySelectorAll('.reveal').forEach((el, i) => {
   el.style.transitionDelay = `${(i % 4) * 0.08}s`;
 });
+
+
+/* =============================================================
+   FIREBASE BLESSINGS WALL
+   ============================================================= */
+(function () {
+  const COLLECTION = 'blessings';
+  const nameInput = document.getElementById('guestName');
+  const msgInput = document.getElementById('message');
+  const addBtn = document.getElementById('addBlessingBtn');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const grid = document.getElementById('blessingsGrid');
+  const emptyMsg = document.getElementById('blessingsEmpty');
+  const loadingEl = document.getElementById('blessingsLoading');
+  const countEl = document.getElementById('blessingsCount');
+
+  function escapeHTML(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  function formatDate(ts) {
+    if (!ts) return '';
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    return d.toLocaleDateString('en-IN', {
+      day: 'numeric', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  function timeAgo(ts) {
+    if (!ts) return '';
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    const diff = Date.now() - d.getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return `${mins}m ago`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs}h ago`;
+    const days = Math.floor(hrs / 24);
+    if (days < 30) return `${days}d ago`;
+    return formatDate(ts);
+  }
+
+  // Render a single blessing card for the public wall
+  function createBlessingCard(data) {
+    const card = document.createElement('div');
+    card.className = 'blessing-card';
+    card.innerHTML = `
+      <div class="blessing-card-name">🌸 ${escapeHTML(data.name)}</div>
+      <div class="blessing-card-msg">"${escapeHTML(data.message)}"</div>
+      <div class="blessing-card-time">${timeAgo(data.createdAt)}</div>
+    `;
+    return card;
+  }
+
+  // Render an admin card with delete button
+  function createAdminCard(docId, data) {
+    const card = document.createElement('div');
+    card.className = 'admin-card';
+    card.id = `admin-${docId}`;
+    card.innerHTML = `
+      <div class="admin-card-top">
+        <div class="admin-card-name">🌸 ${escapeHTML(data.name)}</div>
+        <button class="admin-delete-btn" data-id="${docId}">🗑️ Delete</button>
+      </div>
+      <div class="admin-card-msg">"${escapeHTML(data.message)}"</div>
+      <div class="admin-card-meta">
+        <span>📅 ${formatDate(data.createdAt)}</span>
+        <span>ID: ${docId.slice(0, 8)}...</span>
+      </div>
+    `;
+    // Delete handler
+    card.querySelector('.admin-delete-btn').addEventListener('click', async () => {
+      if (confirm(`Delete blessing from "${data.name}"?`)) {
+        try {
+          await db.collection(COLLECTION).doc(docId).delete();
+          card.style.animation = 'blessingAppear 0.3s ease reverse';
+          setTimeout(() => card.remove(), 300);
+        } catch (err) {
+          alert('Failed to delete: ' + err.message);
+        }
+      }
+    });
+    return card;
+  }
+
+  // REAL-TIME LISTENER: Listen to Firestore for blessings
+  function startListening() {
+    if (typeof db === 'undefined') {
+      // Firebase not configured yet, show placeholder message
+      if (loadingEl) loadingEl.innerHTML = '<p style="color:rgba(255,255,255,0.5); font-style:italic;">🔧 Firebase not configured yet. Blessings will appear here once connected.</p>';
+      return;
+    }
+
+    db.collection(COLLECTION)
+      .orderBy('createdAt', 'desc')
+      .onSnapshot((snapshot) => {
+        // Hide loading
+        if (loadingEl) loadingEl.style.display = 'none';
+
+        grid.innerHTML = '';
+        const adminBody = document.getElementById('adminBody');
+        if (adminBody) adminBody.innerHTML = '';
+
+        if (snapshot.empty) {
+          emptyMsg.style.display = 'block';
+          countEl.textContent = '';
+          if (document.getElementById('adminBlessingCount')) {
+            document.getElementById('adminBlessingCount').textContent = '0 blessings';
+          }
+          return;
+        }
+
+        emptyMsg.style.display = 'none';
+        let count = 0;
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          count++;
+
+          // Public wall
+          grid.appendChild(createBlessingCard(data));
+
+          // Admin panel
+          if (adminBody) {
+            adminBody.appendChild(createAdminCard(doc.id, data));
+          }
+        });
+
+        countEl.textContent = `${count} blessing${count !== 1 ? 's' : ''} on the wall 🌸`;
+        if (document.getElementById('adminBlessingCount')) {
+          document.getElementById('adminBlessingCount').textContent = `${count} blessing${count !== 1 ? 's' : ''}`;
+        }
+      }, (err) => {
+        console.error('Firestore error:', err);
+        if (loadingEl) loadingEl.innerHTML = '<p style="color:#ff6b6b;">Could not load blessings. Please refresh.</p>';
+      });
+  }
+
+  // Post a new blessing
+  addBtn.addEventListener('click', async () => {
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+
+    if (!name) { nameInput.focus(); nameInput.style.borderColor = '#F44'; setTimeout(() => nameInput.style.borderColor = '', 1200); return; }
+    if (!message) { msgInput.focus(); msgInput.style.borderColor = '#F44'; setTimeout(() => msgInput.style.borderColor = '', 1200); return; }
+
+    if (typeof db === 'undefined') {
+      alert('Firebase is not configured yet. Please set up Firebase first.');
+      return;
+    }
+
+    addBtn.disabled = true;
+    addBtn.textContent = '✨ Posting...';
+
+    try {
+      await db.collection(COLLECTION).add({
+        name,
+        message,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      nameInput.value = '';
+      msgInput.value = '';
+      addBtn.textContent = '✅ Posted!';
+      setTimeout(() => { addBtn.textContent = '🌸 Post Blessing'; addBtn.disabled = false; }, 1500);
+    } catch (err) {
+      alert('Failed to post: ' + err.message);
+      addBtn.textContent = '🌸 Post Blessing';
+      addBtn.disabled = false;
+    }
+  });
+
+  // WhatsApp share
+  whatsappBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+    let text = `🌸 *Wedding Blessings for Neha & Prasad* 🌸\n\n`;
+    if (name) text += `From: ${name}\n`;
+    if (message) text += `Message: ${message}\n`;
+    text += `\n💒 22 April 2026 · Suryamahal Hall, Goregaon East\n`;
+    text += `🌺 Wishing the couple a lifetime of happiness!`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+  });
+
+  // Start listening
+  startListening();
+})();
+
+
+/* =============================================================
+   ADMIN PANEL
+   ============================================================= */
+(function () {
+  const modal = document.getElementById('adminModal');
+  const panel = document.getElementById('adminPanel');
+  const toggleBtn = document.getElementById('adminToggleNav');
+  const closeModalBtn = document.getElementById('adminModalClose');
+  const loginBtn = document.getElementById('adminLoginBtn');
+  const passwordInput = document.getElementById('adminPassword');
+  const errorEl = document.getElementById('adminError');
+  const closeBtn = document.getElementById('adminCloseBtn');
+
+  let isAdmin = false;
+
+  // Open admin modal
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (isAdmin) {
+      panel.classList.toggle('active');
+    } else {
+      modal.classList.add('active');
+      passwordInput.focus();
+    }
+  });
+
+  // Close modal
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    errorEl.textContent = '';
+    passwordInput.value = '';
+  });
+
+  // Close modal on overlay click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      errorEl.textContent = '';
+      passwordInput.value = '';
+    }
+  });
+
+  // Login
+  loginBtn.addEventListener('click', () => {
+    const pwd = passwordInput.value.trim();
+    if (pwd === ADMIN_PASSWORD) {
+      isAdmin = true;
+      modal.classList.remove('active');
+      panel.classList.add('active');
+      toggleBtn.textContent = '🔓';
+      toggleBtn.style.opacity = '1';
+      passwordInput.value = '';
+      errorEl.textContent = '';
+    } else {
+      errorEl.textContent = '❌ Wrong password. Try again.';
+      passwordInput.value = '';
+      passwordInput.focus();
+    }
+  });
+
+  // Enter key in password field
+  passwordInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') loginBtn.click();
+  });
+
+  // Close admin panel
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('active');
+  });
+})();
