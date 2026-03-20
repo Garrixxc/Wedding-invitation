@@ -1073,11 +1073,15 @@ body {
   animation: shimmerMove 3s linear infinite;
 }
 
-.rsvp-form {
+.blessings-form-card {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 2.5rem;
   position: relative;
   z-index: 2;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(232,160,32,0.25);
+  border-radius: 20px;
+  padding: 2rem;
 }
 
 .form-group {
@@ -1121,44 +1125,23 @@ body {
   color: rgba(255,255,255,0.3);
 }
 
-.radio-group {
+.blessings-btn-row {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 
-.radio-option {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--ivory);
-  font-size: 0.95rem;
-  cursor: pointer;
-  padding: 0.7rem 1.2rem;
-  border: 2px solid rgba(232,160,32,0.3);
-  border-radius: 50px;
-  transition: var(--transition);
-}
-
-.radio-option:hover,
-.radio-option:has(input:checked) {
-  border-color: var(--gold);
-  background: rgba(232,160,32,0.15);
-}
-
-.radio-option input { display: none; }
-
 .rsvp-btn {
-  width: 100%;
-  padding: 1.1rem;
+  flex: 1;
+  min-width: 180px;
+  padding: 1rem;
   background: linear-gradient(135deg, var(--gold), var(--saffron));
   border: none;
   border-radius: 12px;
   color: var(--maroon-dark);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: var(--transition);
   font-family: var(--font-body);
@@ -1170,18 +1153,100 @@ body {
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
 }
 
-.rsvp-success {
-  display: none;
+.whatsapp-btn {
+  flex: 1;
+  min-width: 180px;
+  padding: 1rem;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border: none;
+  border-radius: 12px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+  background: linear-gradient(135deg, #2EE374, #25D366);
+}
+
+/* Blessings Wall */
+.blessings-wall {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.blessings-wall-title {
   text-align: center;
+  font-family: var(--font-heading);
+  color: var(--gold-light);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.blessings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.blessing-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(232,160,32,0.2);
+  border-radius: 16px;
+  padding: 1.2rem;
+  transition: var(--transition);
+  animation: blessingAppear 0.5s ease forwards;
+}
+
+@keyframes blessingAppear {
+  from { opacity: 0; transform: scale(0.9) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.blessing-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.blessing-card-name {
+  font-family: var(--font-heading);
   color: var(--gold-light);
   font-size: 1rem;
-  margin-top: 1.5rem;
-  padding: 1rem;
-  background: rgba(232,160,32,0.1);
-  border: 1px solid rgba(232,160,32,0.3);
-  border-radius: 12px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.blessing-card-msg {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.blessing-card-time {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.7rem;
+  margin-top: 0.6rem;
+  text-align: right;
+}
+
+.blessings-empty {
+  text-align: center;
+  color: rgba(255,255,255,0.4);
   font-family: var(--font-heading);
   font-style: italic;
+  font-size: 1rem;
+  padding: 2rem;
 }
 
 /* ---------- FAMILY ---------- */

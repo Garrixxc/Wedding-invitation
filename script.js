@@ -1,6 +1,6 @@
 /* ============================================================
    WEDDING WEBSITE JS — Neha & Prasad
-   Animations, Countdown, Petals, RSVP, Scroll Reveal
+   Animations, Countdown, Petals, Blessings Wall, Scroll Reveal
    ============================================================ */
 
 /* ---- PETAL RAIN ---- */
@@ -60,13 +60,15 @@ document.querySelectorAll('.kid-badge').forEach((badge, i) => {
 
 /* ---- COUNTDOWN TIMER ---- */
 (function () {
-  const weddingDate = new Date('2025-04-22T11:00:00+05:30').getTime();
+  // Wedding date: Wednesday, 22 April 2026 at 11:00 AM IST (UTC+5:30)
+  const weddingDate = new Date('2026-04-22T11:00:00+05:30').getTime();
 
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
   const minutesEl = document.getElementById('minutes');
   const secondsEl = document.getElementById('seconds');
   const sublabel = document.getElementById('countdown-sublabel');
+  const countdownLabel = document.querySelector('.countdown-label');
 
   const daysCard = document.getElementById('days-card');
   const hoursCard = document.getElementById('hours-card');
@@ -86,8 +88,8 @@ document.querySelectorAll('.kid-badge').forEach((badge, i) => {
 
   function updateCountdown() {
     const now = Date.now();
-    const diff = now - weddingDate; // Positive if past, negative if future
-    const isAfter = diff >= 0;
+    const diff = weddingDate - now; // Positive if future
+    const isUpcoming = diff > 0;
 
     const absDiff = Math.abs(diff);
     const totalSeconds = Math.floor(absDiff / 1000);
@@ -117,12 +119,12 @@ document.querySelectorAll('.kid-badge').forEach((badge, i) => {
 
     prevValues = { days, hours: hrs, minutes: mins, seconds: secs };
 
-    if (isAfter) {
-      sublabel.textContent = 'The happy couple tied the knot! 🎉';
-      document.querySelector('.countdown-label').textContent = '🕐 Since the Auspicious Day';
+    if (isUpcoming) {
+      sublabel.textContent = 'Until two hearts become one...';
+      countdownLabel.textContent = 'Counting Down to the Big Day 💍';
     } else {
-      sublabel.textContent = 'Until forever begins…';
-      document.querySelector('.countdown-label').textContent = 'Counting down to the wedding 💍';
+      sublabel.textContent = 'The happy couple tied the knot! 🎉';
+      countdownLabel.textContent = '🕐 Since the Auspicious Day';
     }
   }
 
@@ -200,7 +202,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     reveals.forEach(el => observer.observe(el));
   } else {
-    // Fallback: show all immediately
     reveals.forEach(el => el.classList.add('visible'));
   }
 })();
@@ -208,7 +209,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 /* ---- PARALLAX HERO ---- */
 (function () {
   const hero = document.querySelector('.hero');
-  const rangoli = document.querySelector('.rangoli-bg');
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
@@ -220,39 +220,119 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   }, { passive: true });
 })();
 
-/* ---- RSVP FORM ---- */
+/* ---- BLESSINGS WALL (localStorage) ---- */
 (function () {
-  const form = document.getElementById('rsvpForm');
-  const successMsg = document.getElementById('rsvpSuccess');
+  const STORAGE_KEY = 'neha_prasad_blessings';
+  const nameInput = document.getElementById('guestName');
+  const msgInput = document.getElementById('message');
+  const addBtn = document.getElementById('addBlessingBtn');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const grid = document.getElementById('blessingsGrid');
+  const emptyMsg = document.getElementById('blessingsEmpty');
 
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = form.guestName.value.trim();
-      const attendance = form.attendance ? form.attendance.value : '';
-      const message = form.message.value.trim();
+  function getBlessings() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch {
+      return [];
+    }
+  }
 
-      if (!name) {
-        form.guestName.focus();
-        form.guestName.style.borderColor = '#E44';
-        setTimeout(() => form.guestName.style.borderColor = '', 1500);
-        return;
-      }
+  function saveBlessings(blessings) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(blessings));
+  }
 
-      // Simulate submission
-      const btn = document.getElementById('rsvpSubmit');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
+  function timeAgo(ts) {
+    const diff = Date.now() - ts;
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return 'Just now';
+    if (mins < 60) return `${mins}m ago`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs}h ago`;
+    const days = Math.floor(hrs / 24);
+    return `${days}d ago`;
+  }
 
-      setTimeout(() => {
-        form.reset();
-        btn.textContent = 'Send Blessings 🙏';
-        btn.disabled = false;
-        successMsg.style.display = 'block';
-        setTimeout(() => successMsg.style.display = 'none', 5000);
-      }, 1200);
+  function renderBlessings() {
+    const blessings = getBlessings();
+    grid.innerHTML = '';
+
+    if (blessings.length === 0) {
+      emptyMsg.style.display = 'block';
+      return;
+    }
+
+    emptyMsg.style.display = 'none';
+
+    // Show newest first
+    blessings.slice().reverse().forEach(b => {
+      const card = document.createElement('div');
+      card.className = 'blessing-card';
+      card.innerHTML = `
+        <div class="blessing-card-name">🌸 ${escapeHTML(b.name)}</div>
+        <div class="blessing-card-msg">"${escapeHTML(b.message)}"</div>
+        <div class="blessing-card-time">${timeAgo(b.timestamp)}</div>
+      `;
+      grid.appendChild(card);
     });
   }
+
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function shakeFeedback(el) {
+    el.style.borderColor = '#F44';
+    el.style.animation = 'none';
+    el.offsetHeight; // trigger reflow
+    el.style.animation = '';
+    setTimeout(() => el.style.borderColor = '', 1200);
+  }
+
+  // Post blessing to wall
+  addBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+
+    if (!name) { shakeFeedback(nameInput); nameInput.focus(); return; }
+    if (!message) { shakeFeedback(msgInput); msgInput.focus(); return; }
+
+    const blessings = getBlessings();
+    blessings.push({ name, message, timestamp: Date.now() });
+    saveBlessings(blessings);
+
+    nameInput.value = '';
+    msgInput.value = '';
+    renderBlessings();
+
+    // Quick visual feedback
+    addBtn.textContent = '✅ Posted!';
+    addBtn.disabled = true;
+    setTimeout(() => {
+      addBtn.textContent = '🌸 Post Blessing';
+      addBtn.disabled = false;
+    }, 1500);
+  });
+
+  // Send via WhatsApp
+  whatsappBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = msgInput.value.trim();
+
+    let text = `🌸 *Wedding Blessings for Neha & Prasad* 🌸\n\n`;
+    if (name) text += `From: ${name}\n`;
+    if (message) text += `Message: ${message}\n`;
+    text += `\n💒 22 April 2026 · Suryamahal Hall, Goregaon East\n`;
+    text += `🌺 Wishing the couple a lifetime of happiness!`;
+
+    const waURL = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(waURL, '_blank');
+  });
+
+  // Render on load
+  renderBlessings();
 })();
 
 /* ---- CARD HOVER GLOW ---- */
