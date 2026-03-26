@@ -25,31 +25,9 @@
   for (let i = 0; i < PETAL_COUNT; i++) createPetal();
 })();
 
-/* ---- CONFETTI (KIDS SECTION) ---- */
-(function () {
-  const container = document.getElementById('confettiContainer');
-  const colors = ['#E8A020', '#6B1414', '#F4832A', '#F5DDD3', '#F5C518', '#FFB6C1', '#98FB98'];
 
-  for (let i = 0; i < 30; i++) {
-    const el = document.createElement('div');
-    el.className = 'confetti-piece';
-    el.style.cssText = `
-      left: ${Math.random() * 100}%;
-      background: ${colors[Math.floor(Math.random() * colors.length)]};
-      width: ${6 + Math.random() * 8}px;
-      height: ${6 + Math.random() * 8}px;
-      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
-      animation-duration: ${6 + Math.random() * 8}s;
-      animation-delay: ${Math.random() * 8}s;
-    `;
-    container.appendChild(el);
-  }
-})();
 
-/* ---- KIDS BADGE STAGGER ---- */
-document.querySelectorAll('.kid-badge').forEach((badge, i) => {
-  badge.style.setProperty('--delay', `${i * 0.15}s`);
-});
+
 
 /* ---- COUNTDOWN TIMER ---- */
 (function () {

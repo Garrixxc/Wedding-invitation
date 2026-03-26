@@ -1340,77 +1340,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* ---------- KIDS SECTION ---------- */
-.kids-section {
-  background: linear-gradient(135deg, #FFF0E0 0%, var(--blush) 50%, #FFE8C8 100%);
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
 
-.kids-section .section-title {
-  background: linear-gradient(90deg, var(--maroon) 0%, var(--saffron) 40%, var(--gold) 60%, var(--maroon) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmerMove 3s linear infinite;
-}
-
-.confetti-container {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.confetti-piece {
-  position: absolute;
-  width: 8px; height: 8px;
-  top: -10px;
-  border-radius: 2px;
-  animation: confettiFall linear infinite;
-  opacity: 0.7;
-}
-
-@keyframes confettiFall {
-  0% { transform: translateY(-10px) rotate(0deg); opacity: 0.7; }
-  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-}
-
-.kids-badges-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-.kid-badge {
-  background: var(--white);
-  border-radius: 50px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--maroon);
-  box-shadow: 0 4px 15px rgba(107, 20, 20, 0.12);
-  border: 2px solid transparent;
-  transition: var(--transition);
-  animation: badgeBounce 2s ease-in-out infinite var(--delay, 0s);
-}
-
-@keyframes badgeBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.kid-badge:hover {
-  transform: scale(1.1) translateY(-4px);
-  border-color: var(--gold);
-  background: linear-gradient(135deg, var(--blush), var(--white));
-  box-shadow: 0 8px 25px rgba(232,160,32,0.25);
-}
 
 /* ---------- FOOTER ---------- */
 .footer {
@@ -1543,8 +1473,7 @@ body {
 
   .section-pad { padding: 5rem 1.2rem; }
 
-  .kids-badges-grid { gap: 0.7rem; }
-  .kid-badge { padding: 0.6rem 1.1rem; font-size: 0.9rem; }
+
 }
 
 @media (max-width: 480px) {
