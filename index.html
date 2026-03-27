@@ -34,7 +34,9 @@
       <li><a href="#bhojan">Bhojan</a></li>
       <li><a href="#rsvp">Blessings</a></li>
       <li><a href="#family">Family</a></li>
-      <li><a href="#" id="adminToggleNav" class="admin-lock" title="Admin">🔒</a></li>
+      <li><a href="#" id="adminToggleNav" class="admin-lock" title="Admin">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="margin: 0;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+      </a></li>
     </ul>
     <div class="nav-hamburger" id="navHamburger">
       <span></span><span></span><span></span>
@@ -43,28 +45,40 @@
 
   <!-- Mobile Bottom Navigation (Visible only on mobile) -->
   <nav class="mobile-nav" id="mobileNav">
-    <a href="#couple" class="mobile-nav-item" data-section="couple">
-      <span class="nav-icon">💑</span>
+    <a href="#couple" class="mobile-nav-item active" data-section="couple">
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </span>
       <span class="nav-label">Couple</span>
     </a>
     <a href="#haldi" class="mobile-nav-item" data-section="haldi">
-      <span class="nav-icon">🌿</span>
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.1 2 4.1a7 7 0 0 1-10 13.9Z"/><path d="M7 20v-5"/><path d="M3 20v-2"/></svg>
+      </span>
       <span class="nav-label">Haldi</span>
     </a>
     <a href="#wedding" class="mobile-nav-item" data-section="wedding">
-      <span class="nav-icon">💍</span>
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><path d="M11.5 13c1.9 0 3.5-1.6 3.5-3.5S13.4 6 11.5 6 8 7.6 8 9.5s1.6 3.5 3.5 3.5z"/><path d="M11.4 13l-1.2 8.4m2.6-8.4l1.2 8.4"/><path d="M6 21h11"/></svg>
+      </span>
       <span class="nav-label">Wedding</span>
     </a>
     <a href="#bhojan" class="mobile-nav-item" data-section="bhojan">
-      <span class="nav-icon">🍛</span>
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </span>
       <span class="nav-label">Bhojan</span>
     </a>
     <a href="#rsvp" class="mobile-nav-item" data-section="rsvp">
-      <span class="nav-icon">💌</span>
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </span>
       <span class="nav-label">Blessings</span>
     </a>
     <a href="#family" class="mobile-nav-item" data-section="family">
-      <span class="nav-icon">👨‍👩‍👧</span>
+      <span class="nav-icon">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="19" cy="11" r="2"/></svg>
+      </span>
       <span class="nav-label">Family</span>
     </a>
   </nav>
@@ -80,26 +94,38 @@
     <div class="hero-content">
       <!-- Kalash / Ganesh invocation -->
       <div class="hero-invocation animate-fade-in">
-        <div class="kalash-icon">🪔</div>
+        <div class="kalash-icon">
+          <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="width: 32px; height: 32px;"><path d="M12 2c.6 3 2 4 4 6 2 2 3 5 3 8 0 4-3 7-7 7s-7-3-7-7c0-3 1-6 3-8 2-2 3.4-3 4-6Z"/><path d="M9 13a3 3 0 0 0 6 0"/></svg>
+        </div>
         <p class="shri-ganesh">॥ श्री गणेशाय नमः ॥</p>
       </div>
 
       <h1 class="hero-heading shimmer-text animate-fade-in delay-1">
-        Neha <span class="weds-text">weds</span> Prasad
+        Neha 
+        <span class="name-divider-container">
+          <svg viewBox="0 0 100 20" class="name-divider-svg">
+            <line x1="0" y1="10" x2="35" y2="10" stroke="currentColor" stroke-width="1.5" />
+            <path d="M50 4 L56 10 L50 16 L44 10 Z" fill="currentColor" />
+            <line x1="65" y1="10" x2="100" y2="10" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+        </span> 
+        Prasad
       </h1>
 
       <p class="hero-devanagari animate-fade-in delay-2">नेहा विवाहबद्ध होणार प्रसादशी</p>
 
       <div class="hero-date animate-fade-in delay-3">
         <div class="date-line">
-          <span class="date-icon">📅</span>
+          <span class="date-icon">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+          </span>
           <span>Wednesday, 22 April 2026 · 11:00 AM</span>
         </div>
       </div>
 
       <!-- Countdown Timer -->
       <div class="countdown-wrapper animate-fade-in delay-4">
-        <p class="countdown-label">Counting Down to the Big Day 💍</p>
+        <p class="countdown-label">Counting Down to the Big Day</p>
         <div class="countdown-timer" id="countdown">
           <div class="flip-unit">
             <div class="flip-card" id="days-card">
@@ -145,14 +171,20 @@
 
   <!-- ===================== COUPLE ===================== -->
   <section class="couple-section section-pad" id="couple">
-    <div class="section-ornament">🌸 🌼 🌸</div>
+    <div class="section-ornament">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+    </div>
     <h2 class="section-title shimmer-text reveal">The Blessed Union</h2>
     <p class="section-subtitle reveal">Two souls, one destiny</p>
 
     <div class="couple-cards">
       <!-- Bride Card -->
       <div class="couple-card bride-card reveal">
-        <div class="card-flower-top">🌸</div>
+        <div class="card-flower-top">
+          <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        </div>
         <div class="couple-avatar bride-avatar">
           <div class="avatar-inner">
             <span class="avatar-initial">न</span>
@@ -160,7 +192,9 @@
           <div class="avatar-ring"></div>
         </div>
         <h3 class="couple-name">Neha</h3>
-        <p class="couple-role">Bride <span>🌺</span></p>
+        <p class="couple-role">Bride <span>
+          <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </span></p>
         <div class="couple-family-info">
           <p class="couple-parents">
             <strong>Daughter of</strong><br />
@@ -168,7 +202,9 @@
             &amp; Sou. Darshana Dilip Parab
           </p>
           <p class="couple-village">
-            <span class="village-icon">📍</span>
+            <span class="village-icon">
+              <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            </span>
             Hindale (Varchiwadi), Devgad,<br />Sindhudurg
           </p>
         </div>
@@ -179,14 +215,16 @@
       <div class="couple-divider reveal">
         <div class="divider-mandala">❁</div>
         <div class="divider-line"></div>
-        <div class="divider-heart">♥</div>
+        <div class="divider-heart"><svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="margin: 0;"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
         <div class="divider-line"></div>
         <div class="divider-mandala">❁</div>
       </div>
 
       <!-- Groom Card -->
       <div class="couple-card groom-card reveal">
-        <div class="card-flower-top">🌼</div>
+        <div class="card-flower-top">
+          <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        </div>
         <div class="couple-avatar groom-avatar">
           <div class="avatar-inner">
             <span class="avatar-initial">प्र</span>
@@ -194,7 +232,9 @@
           <div class="avatar-ring"></div>
         </div>
         <h3 class="couple-name">Prasad</h3>
-        <p class="couple-role">Groom <span>🌻</span></p>
+        <p class="couple-role">Groom <span>
+          <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </span></p>
         <div class="couple-family-info">
           <p class="couple-parents">
             <strong>Son of</strong><br />
@@ -205,7 +245,9 @@
             <em>Grandson of Kai. Shri. Krishna Raghoji Rane</em>
           </p>
           <p class="couple-village">
-            <span class="village-icon">📍</span>
+            <span class="village-icon">
+              <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            </span>
             Dahibav (Ranewadi), Devgad,<br />Sindhudurg
           </p>
         </div>
@@ -218,38 +260,49 @@
   <section class="haldi-section section-pad" id="haldi">
     <div class="haldi-drip-top"></div>
     <div class="haldi-content">
-      <div class="section-ornament light">🌿 🌾 🌿</div>
+      <div class="section-ornament light">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+      </div>
       <h2 class="section-title haldi-title reveal">Haldi Samarambh</h2>
       <p class="haldi-subtitle reveal">हळदी समारंभ</p>
 
       <div class="haldi-details-card reveal">
         <div class="haldi-detail-row">
-          <div class="haldi-icon">📅</div>
-          <div>
-            <strong>Date</strong>
-            <p>Sunday, 19 April 2026</p>
-          </div>
+          <p class="haldi-detail-text">
+            <span>
+              <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
+            </span>
+            Sunday, 19 April 2026
+          </p>
         </div>
         <div class="haldi-divider"></div>
         <div class="haldi-detail-row">
-          <div class="haldi-icon">🕕</div>
-          <div>
-            <strong>Time</strong>
-            <p>6:00 PM to 10:00 PM</p>
-          </div>
+          <p class="haldi-detail-text">
+            <span>
+              <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+            </span>
+            6:00 PM to 10:00 PM
+          </p>
         </div>
         <div class="haldi-divider"></div>
         <div class="haldi-detail-row">
-          <div class="haldi-icon">📍</div>
-          <div>
-            <strong>Venue</strong>
-            <p>Vanrai Utkarsh Samaj Mandir Sanstha,<br />Vanrai Colony, Goregaon (East), Mumbai</p>
-          </div>
+          <p class="haldi-detail-text">
+            <span>
+              <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            </span>
+            Vanrai Utkarsh Samaj Mandir Sanstha,<br />Vanrai Colony, Goregaon (East), Mumbai
+          </p>
         </div>
       </div>
 
-      <div class="haldi-emoji-row reveal">
-        <span>💛</span><span>🌿</span><span>🌼</span><span>🌿</span><span>💛</span>
+      <div class="haldi-emoji-row reveal" style="color: var(--gold);">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.1 2 4.1a7 7 0 0 1-10 13.9Z"/><path d="M7 20v-5"/><path d="M3 20v-2"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.1 2 4.1a7 7 0 0 1-10 13.9Z"/><path d="M7 20v-5"/><path d="M3 20v-2"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>
       </div>
     </div>
     <div class="haldi-drip-bottom"></div>
@@ -266,7 +319,7 @@
       <div class="wedding-cards-grid">
         <!-- Muhurta Card -->
         <div class="wedding-detail-card reveal">
-          <div class="wc-icon">🕉️</div>
+          <div class="wc-icon"><span class="om-symbol">ॐ</span></div>
           <h3>Muhurta</h3>
           <p class="wc-main">Wednesday, 22 April 2026</p>
           <p class="wc-sub">11:15 AM</p>
@@ -279,9 +332,11 @@
         </div>
 
         <!-- Venue Card -->
-        <div class="wedding-detail-card reveal">
-          <div class="wc-icon">🏛️</div>
-          <h3>Venue</h3>
+        <div class="wedding-card reveal">
+        <div class="wedding-icon">
+          <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="width: 32px; height: 32px;"><path d="m3 21 3-3 3 3 3-3 3 3 3-3 3 3V3H3z"/></svg>
+        </div>
+        <h3 class="wc-title">VENUE</h3>
           <p class="wc-main">Suryamahal Hall</p>
           <p class="wc-sub">S.R.P.F. Camp Road,<br />Goregaon (East),<br />Mumbai 400 065</p>
         </div>
@@ -296,7 +351,9 @@
 
       <div class="venue-action-row reveal">
         <a href="https://maps.app.goo.gl/vRdumWxfEUT6LPmz5?g_st=ic" target="_blank" class="navigate-btn">
-          <span class="btn-icon">📍</span>
+          <span class="btn-icon">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="stroke: white;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+          </span>
           <span>Navigate to Venue</span>
         </a>
       </div>
@@ -305,16 +362,32 @@
 
   <!-- ===================== SNEH BHOJAN ===================== -->
   <section class="bhojan-section section-pad" id="bhojan">
-    <div class="section-ornament">🌸 · 🍛 · 🌸</div>
+    <div class="section-ornament">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+    </div>
     <h2 class="section-title shimmer-text reveal">Sneh Bhojan</h2>
     <p class="section-subtitle reveal">स्नेह भोजन · Welcome Lunch</p>
 
     <div class="bhojan-card reveal">
       <div class="bhojan-icons-row">
-        <div class="bhojan-icon-item">🍛<span>Thali</span></div>
-        <div class="bhojan-icon-item">🥮<span>Modak</span></div>
-        <div class="bhojan-icon-item">🍚<span>Dal-Rice</span></div>
-        <div class="bhojan-icon-item">🍬<span>Sweets</span></div>
+          <div class="bhojan-icon-item">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="width: 48px; height: 48px;"><circle cx="12" cy="12" r="10"/><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M12 12l2 2"/></svg>
+            <p>Thali</p>
+          </div>
+          <div class="bhojan-icon-item">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="width: 48px; height: 48px;"><path d="M12 2L4 12h16L12 2z"/><circle cx="12" cy="14" r="4"/></svg>
+            <p>Modak</p>
+          </div>
+          <div class="bhojan-icon-item">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="width: 48px; height: 48px;"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18V6"/></svg>
+            <p>Dal-Rice</p>
+          </div>
+          <div class="bhojan-icon-item">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="width: 48px; height: 48px;"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16"/></svg>
+            <p>Sweets</p>
+          </div>
       </div>
       <div class="bhojan-details">
         <div class="bhojan-row">
@@ -339,13 +412,28 @@
 
   <!-- ===================== BLESSINGS WALL ===================== -->
   <section class="rsvp-section section-pad" id="rsvp">
-    <div class="rsvp-floral-tl">🌺</div>
-    <div class="rsvp-floral-tr">🌺</div>
-    <div class="rsvp-floral-bl">🌸</div>
-    <div class="rsvp-floral-br">🌸</div>
+    <div class="rsvp-floral-tl">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+    </div>
+    <div class="rsvp-floral-tr">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+    </div>
+    <div class="rsvp-floral-bl">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+    </div>
+    <div class="rsvp-floral-br">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+    </div>
 
-    <div class="section-ornament light">💌 · 💌 · 💌</div>
-    <h2 class="section-title shimmer-text reveal">Blessings Wall</h2>
+    <div class="section-ornament light">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    </div>
+    <h2 class="section-title shimmer-text reveal">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="margin-right: 12px;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Wall of Blessings
+    </h2>
     <p class="section-subtitle light reveal">आशीर्वाद द्या · Write your wishes for the couple</p>
 
     <div class="blessings-form-card reveal">
@@ -359,36 +447,52 @@
       </div>
       <div class="blessings-btn-row">
         <button type="button" class="rsvp-btn" id="addBlessingBtn">
-          🌸 Post Blessing
+          <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="margin-right: 8px;"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+          Post Blessing
         </button>
         <button type="button" class="whatsapp-btn" id="whatsappBtn">
-          📱 Send via WhatsApp
+          <svg viewBox="0 0 24 24" class="icon-svg" style="margin-right: 8px; color: #25D366; fill: currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 .018 5.394 0 12.03a11.77 11.77 0 0 0 1.579 5.825L0 24l6.111-1.604a11.754 11.754 0 0 0 5.927 1.603h.005c6.636 0 12.032-5.395 12.034-12.031a11.75 11.75 0 0 0-3.528-8.503z"/></svg>
+          Send via WhatsApp
         </button>
       </div>
     </div>
 
     <!-- Blessings Wall Display -->
     <div class="blessings-wall reveal" id="blessingsWall">
-      <h3 class="blessings-wall-title">🌼 Wall of Love 🌼</h3>
+      <h3 class="blessings-wall-title">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="margin-right: 8px;"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        Wall of Love
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="margin-left: 8px;"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+      </h3>
       <div class="blessings-loading" id="blessingsLoading">
         <div class="loading-spinner"></div>
         <p>Loading blessings...</p>
       </div>
       <div class="blessings-grid" id="blessingsGrid"></div>
-      <p class="blessings-empty" id="blessingsEmpty" style="display:none;">Be the first to leave a blessing! 🌸</p>
+      <p class="blessings-empty" id="blessingsEmpty" style="display:none;">
+        Be the first to leave a blessing!
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="margin-left: 8px;"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+      </p>
       <div class="blessings-count" id="blessingsCount"></div>
     </div>
   </section>
 
   <!-- ===================== FAMILY ===================== -->
   <section class="family-section section-pad" id="family">
-    <div class="section-ornament">🏵️ 🌺 🏵️</div>
+    <div class="section-ornament">
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-maroon"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+      <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 22C12 22 20 18 20 12C20 8 18 4 12 2C6 4 4 8 4 12C4 18 12 22 12 22Z" /><path d="M12 22C12 22 16 18 16 12C16 9 15 6 12 5C9 6 8 9 8 12C8 18 12 22 12 22Z" /></svg>
+    </div>
     <h2 class="section-title shimmer-text reveal">Our Beloved Family</h2>
     <p class="section-subtitle reveal">आमचे कुटुंब · With love from both sides</p>
 
     <!-- Bride's Family -->
     <div class="family-group reveal">
-      <h3 class="family-group-title">🌸 Bride's Family · Parab Parivar</h3>
+      <h3 class="family-group-title">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="margin-right: 8px;"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        Bride's Family · Parab Parivar
+      </h3>
       <div class="family-scroll-track">
         <div class="family-cards-row">
           <div class="family-card">
@@ -437,7 +541,10 @@
 
     <!-- Groom's Family -->
     <div class="family-group reveal">
-      <h3 class="family-group-title">🌼 Groom's Family · Rane Parivar</h3>
+      <h3 class="family-group-title">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="margin-right: 8px;"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        Groom's Family · Rane Parivar
+      </h3>
       <div class="family-scroll-track">
         <div class="family-cards-row">
           <div class="family-card">
@@ -470,12 +577,16 @@
   <footer class="footer" id="footer">
     <div class="footer-pattern-top"></div>
     <div class="footer-content">
-      <div class="footer-om">🕉️</div>
+      <div class="footer-om">
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold" style="width: 32px; height: 32px;"><path d="M12 2c.6 3 2 4 4 6 2 2 3 5 3 8 0 4-3 7-7 7s-7-3-7-7c0-3 1-6 3-8 2-2 3.4-3 4-6Z"/><path d="M9 13a3 3 0 0 0 6 0"/></svg>
+      </div>
       <p class="footer-blessing">सर्व मंगल विधी हॉलवर होतील</p>
       <p class="footer-blessing-en">May all auspicious ceremonies be celebrated with love and joy</p>
 
       <div class="footer-address">
-        <div class="footer-address-icon">🏠</div>
+        <div class="footer-address-icon">
+          <svg viewBox="0 0 24 24" class="icon-svg icon-gold"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <a href="https://maps.app.goo.gl/vRdumWxfEUT6LPmz5?g_st=ic" target="_blank"
           style="text-decoration: none; color: inherit;">
           <p>
@@ -483,27 +594,38 @@
             MHADA Vanrai Colony, Goregaon (East) 400 065,<br />
             Western Express Highway, Mumbai
           </p>
-          <p style="font-size: 0.7rem; color: var(--gold-light); margin-top: 0.5rem;">📍 Tap to open in Google Maps</p>
+          <p style="font-size: 0.7rem; color: var(--gold-light); margin-top: 0.5rem;">
+            <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            Tap to open in Google Maps
+          </p>
         </a>
       </div>
 
       <div class="footer-contact">
-        <p>📞 For queries, please contact the family</p>
+        <p>
+          <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="margin-right: 4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          For queries, please contact the family
+        </p>
         <div style="margin-top: 1rem;">
           <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-btn"
             style="display: inline-flex; width: auto; padding: 0.8rem 1.5rem;">
+            <svg viewBox="0 0 24 24" class="icon-svg" style="margin-right: 8px; color: #25D366; fill: currentColor;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 .018 5.394 0 12.03a11.77 11.77 0 0 0 1.579 5.825L0 24l6.111-1.604a11.754 11.754 0 0 0 5.927 1.603h.005c6.636 0 12.032-5.395 12.034-12.031a11.75 11.75 0 0 0-3.528-8.503z"/></svg>
             <span>WhatsApp us</span>
           </a>
         </div>
       </div>
 
       <div class="footer-divider">
-        <span>🌸</span><span>🌼</span><span>🌺</span><span>🌼</span><span>🌸</span>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small"><path d="M12 2c-1.5 0-3 1-4 2-1 1-2 2-2 4 0 2 1 3 2 4 1 1 2 2 3 3 1 1 2 2 2 3 0 1-1 2-2 2-1 0-2-1-3-2-1-1-2-2-3-3-1-1-2-2-2-4 0-2 1-3 2-4 1-1 2-2 4-2 1.5 0 3 1 4 2 1 1 2 2 2 4 0 2-1 3-2 4-1 1-2 2-3 3-1 1-2 2-2 3 0 1 1 2 2 2 1 0 2-1 3-2 1-1 2-2 3-3 1-1 2-2 2-4 0-2-1-3-2-4-1-1-2-2-4-2z"/></svg>
       </div>
 
-      <p class="footer-names">Neha Parab &nbsp;♥&nbsp; Prasad Rane</p>
+      <p class="footer-names">Neha Parab &nbsp;<span class="icon-maroon">♥</span>&nbsp; Prasad Rane</p>
       <p class="footer-date">22 April 2026 · Goregaon East, Mumbai</p>
-      <p class="footer-copy">Crafted with ❤️ and blessings</p>
+      <p class="footer-copy">Crafted with <span class="icon-maroon">♥</span> and blessings</p>
     </div>
   </footer>
 
@@ -511,7 +633,7 @@
   <div class="admin-modal-overlay" id="adminModal">
     <div class="admin-modal">
       <button class="admin-modal-close" id="adminModalClose">&times;</button>
-      <h3>🔐 Admin Access</h3>
+      <h3><svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="margin-right: 8px;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg> Admin Access</h3>
       <p>Enter the admin password to manage blessings</p>
       <input type="password" id="adminPassword" placeholder="Enter password" />
       <button class="admin-login-btn" id="adminLoginBtn">Unlock Admin</button>
@@ -522,7 +644,7 @@
   <!-- Admin Panel -->
   <div class="admin-panel" id="adminPanel">
     <div class="admin-header">
-      <h3>🛡️ Admin Panel</h3>
+      <h3><svg viewBox="0 0 24 24" class="icon-svg icon-gold icon-small" style="margin-right: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Admin Panel</h3>
       <div class="admin-header-right">
         <span class="admin-badge" id="adminBlessingCount">0 blessings</span>
         <button class="admin-close-btn" id="adminCloseBtn">&times;</button>

@@ -5,7 +5,7 @@
 
 /* ---- PETAL RAIN ---- */
 (function () {
-  const petalEmojis = ['🌸', '🌺', '🌼', '🌻', '🏵️', '✿', '❀'];
+  const petalEmojis = ['✦', '✿', '❀', '✾', '❁', '❋'];
   const container = document.getElementById('petalsContainer');
   const PETAL_COUNT = 22;
 
@@ -87,8 +87,8 @@
     if (d !== prev.days) { els.days.textContent = pad(d); flip(cards.days); }
     prev = { days: d, hours: h, minutes: m, seconds: s };
 
-    sublabel.textContent = upcoming ? 'Until two hearts become one...' : 'The happy couple tied the knot! 🎉';
-    countdownLabel.textContent = upcoming ? 'Counting Down to the Big Day 💍' : '🕐 Since the Auspicious Day';
+    sublabel.textContent = upcoming ? 'Until two hearts become one...' : 'The happy couple tied the knot!';
+    countdownLabel.textContent = upcoming ? 'Counting Down to the Big Day' : 'Since the Auspicious Day';
   }
 
   tick();
