@@ -358,6 +358,7 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
   const modal = document.getElementById('adminModal');
   const panel = document.getElementById('adminPanel');
   const toggleBtn = document.getElementById('adminToggleNav');
+  const toggleBtnMobile = document.getElementById('adminToggleMobile');
   const closeModalBtn = document.getElementById('adminModalClose');
   const loginBtn = document.getElementById('adminLoginBtn');
   const passwordInput = document.getElementById('adminPassword');
@@ -366,8 +367,7 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 
   let isAdmin = false;
 
-  // Open admin modal
-  toggleBtn.addEventListener('click', (e) => {
+  const handleToggle = (e) => {
     e.preventDefault();
     if (isAdmin) {
       panel.classList.toggle('active');
@@ -375,7 +375,11 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
       modal.classList.add('active');
       passwordInput.focus();
     }
-  });
+  };
+
+  // Open admin modal
+  toggleBtn.addEventListener('click', handleToggle);
+  if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', handleToggle);
 
   // Close modal
   closeModalBtn.addEventListener('click', () => {
