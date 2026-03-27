@@ -3,81 +3,32 @@
    Firebase Firestore Blessings, Countdown, Admin, Animations
    ============================================================ */
 
-/* ---- PETAL RAIN ---- */
-(function () {
-  const petalEmojis = ['✦', '✿', '❀', '✾', '❁', '❋'];
-  const container = document.getElementById('petalsContainer');
-  const PETAL_COUNT = 22;
-
-  function createPetal() {
-    const el = document.createElement('span');
-    el.className = 'petal';
-    el.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-    el.style.cssText = `
-      left: ${Math.random() * 100}vw;
-      font-size: ${Math.random() * 1 + 1}rem; /* Adjusted font size */
-      animation-duration: ${Math.random() * 5 + 5}s; /* Adjusted animation duration */
-      animation-delay: ${Math.random() * 5}s; /* Adjusted animation delay */
-    `;
-    container.appendChild(el);
-
-    // Remove petal after animation
-    setTimeout(() => {
-      el.remove();
-    }, 10000); // Petals removed after 10 seconds
-  }
-
-  // Create petals initially (Reduced on mobile)
-  const petalCount = window.innerWidth < 768 ? 15 : 40; // Dynamic petal count based on screen width
-  for(let i = 0; i < petalCount; i++) {
-    setTimeout(createPetal, Math.random() * 5000); // Stagger initial petal creation
-  }
-
-  // Continuously create petals
-  setInterval(() => {
-    if (document.querySelectorAll('.petal').length < petalCount) {
-      createPetal();
-    }
-  }, 300); // Create a new petal every 300ms if count is below limit
-})();
-
 /* ---- HERO FLOWERS (🌸 🌼 🌺) ---- */
 (function () {
   const heroContainer = document.getElementById('heroPetals');
   if (!heroContainer) return;
 
   const flowerEmojis = ['🌸', '🌼', '🌺'];
-  const HERO_PETAL_COUNT = 15;
+  const leftPositions = [5, 12, 20, 28, 35, 42, 50, 57, 63, 70, 76, 82, 88, 93, 97];
 
-  for (let i = 0; i < HERO_PETAL_COUNT; i++) {
-    const petal = document.createElement('div');
+  leftPositions.forEach((left) => {
+    const petal = document.createElement('span');
     petal.className = 'hero-petal';
+    petal.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
     
-    // Particle Inner for sway
-    const inner = document.createElement('span');
-    inner.className = 'hero-petal-inner';
-    inner.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
-    
-    // Randomized properties
-    const left = 5 + Math.random() * 90; // 5% to 95%
-    const duration = 4 + Math.random() * 4; // 4s to 8s
-    const delay = Math.random() * 6; // 0s to 6s
-    const fontSize = 14 + Math.random() * 8; // 14px to 22px
-    const opacity = 0.7 + Math.random() * 0.15; // 0.7 to 0.85
-    const swayDuration = 2 + Math.random() * 2; // 2s to 4s sway
+    // Randomized properties per spec
+    const duration = 5 + Math.random() * 4; // 5s to 9s
+    const delay = Math.random() * 7; // 0s to 7s
+    const fontSize = 16 + Math.random() * 8; // 16px to 24px
 
     petal.style.left = `${left}%`;
     petal.style.animationDuration = `${duration}s`;
     petal.style.animationDelay = `${delay}s`;
     petal.style.fontSize = `${fontSize}px`;
-    petal.style.opacity = opacity;
-    
-    inner.style.animationDuration = `${swayDuration}s`;
-    inner.style.animationDelay = `${Math.random() * 2}s`;
+    petal.style.opacity = '0.8';
 
-    petal.appendChild(inner);
     heroContainer.appendChild(petal);
-  }
+  });
 })();
 
 

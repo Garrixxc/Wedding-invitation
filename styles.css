@@ -55,37 +55,6 @@ body {
   line-height: 1.7;
 }
 
-/* ---------- FLOATING PETALS ---------- */
-.petals-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-.petal {
-  position: absolute;
-  top: -60px;
-  font-size: 1.4rem;
-  animation: petalFall linear infinite;
-  opacity: 0.8;
-  user-select: none;
-}
-
-@keyframes petalFall {
-  0% {
-    transform: translateY(-60px) rotate(0deg) translateX(0);
-    opacity: 0;
-  }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.6; }
-  100% {
-    transform: translateY(110vh) rotate(720deg) translateX(80px);
-    opacity: 0;
-  }
-}
 
 /* ---------- NAVIGATION ---------- */
 .navbar {
@@ -505,45 +474,30 @@ body {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 5;
+  z-index: 1;
 }
 
 .hero-petal {
   position: absolute;
-  top: -30px;
+  top: -50px;
   user-select: none;
   pointer-events: none;
-  z-index: 5;
+  z-index: 1;
+  opacity: 0.0; /* Start hidden */
   animation: heroPetalFall linear infinite;
-  will-change: transform;
 }
 
 @keyframes heroPetalFall {
   0% {
-    transform: translateY(-50px) rotate(0deg) translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  90% {
+    top: -50px;
+    transform: rotate(0deg);
     opacity: 0.8;
   }
   100% {
-    transform: translateY(110vh) rotate(360deg) translateX(100px);
-    opacity: 0;
+    top: 110%;
+    transform: rotate(360deg);
+    opacity: 0.8;
   }
-}
-
-/* Subtle sway animation added to the falling motion */
-.hero-petal-inner {
-  display: inline-block;
-  animation: heroPetalSway ease-in-out infinite alternate;
-}
-
-@keyframes heroPetalSway {
-  from { transform: translateX(-15px) rotate(-10deg); }
-  to { transform: translateX(15px) rotate(10deg); }
 }
 
 /* ---------- ANIMATE ON LOAD ---------- */
