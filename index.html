@@ -344,15 +344,25 @@
 
       <!-- Static Map Preview for Mobile -->
       <div class="mobile-map-preview reveal">
-        <img
-          src="https://maps.googleapis.com/maps/api/staticmap?center=19.1638369,72.8574483&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C19.1638369,72.8574483&key=YOUR_API_KEY_OR_STATIC_URL"
-          alt="Venue Map Preview" class="static-map-img" />
+        <iframe
+          width="100%"
+          height="200"
+          style="border-radius: 10px; border: 2px solid #C8860A;"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.0!2d72.8650!3d19.1750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSuryamahal+Hall+SRPF+Camp+Road+Goregaon+East+Mumbai!5e0!3m2!1sen!2sin!4v1"
+        >
+        </iframe>
       </div>
 
       <div class="venue-action-row reveal">
-        <a href="https://maps.app.goo.gl/vRdumWxfEUT6LPmz5?g_st=ic" target="_blank" class="navigate-btn">
+        <a href="https://maps.app.goo.gl/vRdumWxfEUT6LPmz5" target="_blank" class="navigate-btn">
           <span class="btn-icon">
-            <svg viewBox="0 0 24 24" class="icon-svg icon-maroon icon-small" style="stroke: white;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+            <svg viewBox="0 0 24 24" class="icon-svg" style="width: 18px; height: 18px; margin-right: 8px; stroke: white; fill: none; stroke-width: 2;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
           </span>
           <span>Navigate to Venue</span>
         </a>
