@@ -814,7 +814,7 @@ body {
   font-family: var(--font-devanagari);
   font-size: 1.4rem;
   color: var(--gold-light);
-  opacity: 0.8;
+  opacity: 1;
   margin-bottom: 2.5rem;
 }
 
@@ -1687,7 +1687,7 @@ body {
 
   /* Haldi Mobile Refinements */
   .haldi-section {
-    background: #FFD700 !important; /* Turmeric Yellow */
+    background: #3D1A00 !important; /* Revert to Dark Brown */
   }
   
   .haldi-details-card {
