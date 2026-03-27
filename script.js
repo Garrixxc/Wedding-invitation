@@ -57,7 +57,7 @@
 
   function flip(card) {
     card.style.transform = 'scale(1.15)';
-    card.style.boxShadow = '0 0 20px rgba(196, 120, 138, 0.4)';
+    card.style.boxShadow = '0 0 20px rgba(232, 160, 32, 0.6)';
     setTimeout(() => { card.style.transform = ''; card.style.boxShadow = ''; }, 200);
   }
 
@@ -113,8 +113,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       const isOpen = navLinks.style.display === 'flex';
       navLinks.style.cssText = isOpen ? '' : `
         display:flex; flex-direction:column; position:fixed; top:60px;
-        left:0; right:0; background:var(--nav-bg); padding:1.5rem 2rem;
-        gap:1.2rem; z-index:999; border-bottom:2px solid var(--card-border);
+        left:0; right:0; background:rgba(74, 13, 13, 0.98); padding:1.5rem 2rem;
+        gap:1.2rem; z-index:999; border-bottom:2px solid rgba(232, 160, 32, 0.3);
       `;
     });
   }
@@ -150,8 +150,8 @@ document.querySelectorAll('.couple-card, .wedding-detail-card, .family-card, .bh
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     card.style.background = card.classList.contains('wedding-detail-card')
-      ? `radial-gradient(circle at ${x}% ${y}%, rgba(155, 123, 184, 0.1), rgba(255,255,255,1))`
-      : `radial-gradient(circle at ${x}% ${y}%, rgba(196, 120, 138, 0.05), rgba(255,255,255,1))`;
+      ? `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.14), rgba(255,255,255,0.06))`
+      : `radial-gradient(circle at ${x}% ${y}%, rgba(232, 160, 32, 0.07), rgba(255,255,255,1))`;
   });
   card.addEventListener('mouseleave', () => { card.style.background = ''; });
 });
