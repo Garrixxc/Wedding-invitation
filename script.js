@@ -41,6 +41,45 @@
   }, 300); // Create a new petal every 300ms if count is below limit
 })();
 
+/* ---- HERO FLOWERS (🌸 🌼 🌺) ---- */
+(function () {
+  const heroContainer = document.getElementById('heroPetals');
+  if (!heroContainer) return;
+
+  const flowerEmojis = ['🌸', '🌼', '🌺'];
+  const HERO_PETAL_COUNT = 15;
+
+  for (let i = 0; i < HERO_PETAL_COUNT; i++) {
+    const petal = document.createElement('div');
+    petal.className = 'hero-petal';
+    
+    // Particle Inner for sway
+    const inner = document.createElement('span');
+    inner.className = 'hero-petal-inner';
+    inner.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+    
+    // Randomized properties
+    const left = 5 + Math.random() * 90; // 5% to 95%
+    const duration = 4 + Math.random() * 4; // 4s to 8s
+    const delay = Math.random() * 6; // 0s to 6s
+    const fontSize = 14 + Math.random() * 8; // 14px to 22px
+    const opacity = 0.7 + Math.random() * 0.15; // 0.7 to 0.85
+    const swayDuration = 2 + Math.random() * 2; // 2s to 4s sway
+
+    petal.style.left = `${left}%`;
+    petal.style.animationDuration = `${duration}s`;
+    petal.style.animationDelay = `${delay}s`;
+    petal.style.fontSize = `${fontSize}px`;
+    petal.style.opacity = opacity;
+    
+    inner.style.animationDuration = `${swayDuration}s`;
+    inner.style.animationDelay = `${Math.random() * 2}s`;
+
+    petal.appendChild(inner);
+    heroContainer.appendChild(petal);
+  }
+})();
+
 
 
 

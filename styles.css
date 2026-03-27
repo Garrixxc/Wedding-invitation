@@ -499,6 +499,53 @@ body {
 .hero-border-top { top: 0; }
 .hero-border-bottom { bottom: 0; }
 
+/* ---------- HERO FLOWERS ANIMATION ---------- */
+.hero-petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hero-petal {
+  position: absolute;
+  top: -30px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 5;
+  animation: heroPetalFall linear infinite;
+  will-change: transform;
+}
+
+@keyframes heroPetalFall {
+  0% {
+    transform: translateY(-50px) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Subtle sway animation added to the falling motion */
+.hero-petal-inner {
+  display: inline-block;
+  animation: heroPetalSway ease-in-out infinite alternate;
+}
+
+@keyframes heroPetalSway {
+  from { transform: translateX(-15px) rotate(-10deg); }
+  to { transform: translateX(15px) rotate(10deg); }
+}
+
 /* ---------- ANIMATE ON LOAD ---------- */
 .animate-fade-in {
   opacity: 0;
