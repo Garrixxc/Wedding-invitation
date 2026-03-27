@@ -37,7 +37,7 @@
 
 /* ---- COUNTDOWN TIMER ---- */
 (function () {
-  const weddingDate = new Date('2026-04-22T11:00:00+05:30').getTime();
+  const weddingDate = new Date('2026-04-22T11:15:00+05:30').getTime();
 
   const els = {
     days: document.getElementById('days'),
