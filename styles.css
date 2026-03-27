@@ -1441,49 +1441,298 @@ body {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
+  .navbar { display: none !important; }
+  
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: rgba(107, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(232, 160, 32, 0.4);
+    z-index: 1000;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  }
 
-  .couple-cards {
+  .mobile-nav-item {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    gap: 4px;
+    flex: 1;
+    transition: var(--transition);
   }
 
+  .mobile-nav-item.active {
+    color: var(--gold-light);
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .nav-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Section Spacing */
+  .section-pad { 
+    padding: 4rem 1.2rem !important; 
+    scroll-snap-align: start;
+  }
+  
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  /* Hero Mobile Refinements */
+  .hero-heading {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-content {
+    padding: 1rem !important;
+  }
+  
+  .hero-invocation {
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-date {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .countdown-timer {
+    gap: 0.6rem !important;
+  }
+  
+  .flip-card {
+    width: 65px !important;
+    height: 65px !important;
+  }
+  
+  .flip-num {
+    font-size: 1.6rem !important;
+  }
+  
+  .flip-label {
+    font-size: 0.6rem !important;
+  }
+
+  /* Couple Mobile Refinements */
+  .couple-cards {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .couple-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem !important;
+  }
+  
+  .couple-name {
+    font-size: 1.8rem !important;
+  }
+  
   .couple-divider {
-    flex-direction: row;
-    padding: 0 1rem;
+    flex-direction: column !important;
+    padding: 2rem 0 !important;
   }
-
+  
   .couple-divider .divider-line {
-    width: 60px; height: 2px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    width: 2px !important;
+    height: 60px !important;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent) !important;
   }
 
-  .flip-card { width: 60px; height: 60px; }
-  .flip-num { font-size: 1.7rem; }
+  /* Haldi Mobile Refinements */
+  .haldi-section {
+    background: #FFD700 !important; /* Turmeric Yellow */
+  }
+  
+  .haldi-details-card {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .haldi-detail-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  .haldi-detail-row p {
+    font-size: 1rem !important;
+  }
+  
+  .haldi-divider {
+    margin: 1rem 0 !important;
+  }
 
-  .navbar { padding: 0.8rem 1.2rem; }
+  /* Wedding Ceremony Mobile Refinements */
+  .wedding-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .wedding-detail-card {
+    padding: 2rem 1.2rem !important;
+  }
+  
+  .wc-panchang {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.8rem !important;
+  }
+  
+  .wc-panchang span {
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.75rem !important;
+  }
 
-  .wedding-cards-grid { grid-template-columns: 1fr; }
+  .map-container {
+    display: none !important;
+  }
+  
+  .mobile-map-preview {
+    display: block !important;
+    margin: 1.5rem 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(232, 160, 32, 0.3);
+  }
+  
+  .static-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .navigate-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    background: #4285F4 !important;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    height: 56px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+  }
 
-  .bhojan-row { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
-  .bhojan-value { text-align: left; }
+  /* Sneh Bhojan Mobile Refinements */
+  .bhojan-icons-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .bhojan-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 0.8rem 0 !important;
+  }
+  
+  .bhojan-value {
+    text-align: center !important;
+  }
 
-  .footer-address { flex-direction: column; text-align: center; }
+  /* Blessings Wall Mobile Refinements */
+  .form-group input, .form-group textarea {
+    min-height: 48px !important;
+    font-size: 16px !important;
+  }
+  
+  .blessings-btn-row {
+    flex-direction: column !important;
+  }
+  
+  .rsvp-btn, .whatsapp-btn {
+    width: 100% !important;
+    height: 52px !important;
+  }
+  
+  .blessing-card {
+    border: 1.5px solid rgba(232, 160, 32, 0.2) !important;
+    padding: 1.2rem !important;
+  }
 
-  .section-pad { padding: 5rem 1.2rem; }
+  /* Family Section Mobile Refinements */
+  .family-cards-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    padding: 0.5rem !important;
+  }
+  
+  .family-card {
+    width: 100% !important;
+    padding: 1rem 0.5rem !important;
+  }
+  
+  .fc-avatar {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .fc-name {
+    font-size: 0.75rem !important;
+    word-break: break-word;
+  }
+  
+  .fc-relation {
+    font-size: 0.65rem !important;
+  }
 
-
-}
-
-@media (max-width: 480px) {
-  .flip-card { width: 52px; height: 52px; }
-  .flip-num { font-size: 1.4rem; }
-  .countdown-sep { font-size: 1.5rem; margin-bottom: 1.2rem; }
-  .countdown-timer { gap: 0.4rem; }
-
-  .haldi-details-card { padding: 1.5rem 1.2rem; }
-  .bhojan-card { padding: 2rem 1.3rem; }
+  /* Footer Mobile Refinements */
+  .footer-content {
+    padding: 3rem 1.5rem !important;
+  }
+  
+  .footer-address {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  
+  .footer-address p {
+    text-align: center !important;
+  }
+  
+  .footer-contact .whatsapp-btn {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .footer-divider {
+    gap: 0.5rem !important;
+  }
 
   .rsvp-floral-tl, .rsvp-floral-tr, .rsvp-floral-bl, .rsvp-floral-br {
     font-size: 2rem;

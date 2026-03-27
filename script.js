@@ -15,14 +15,30 @@
     el.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
     el.style.cssText = `
       left: ${Math.random() * 100}vw;
-      font-size: ${16 + Math.random() * 18}px;
-      animation-duration: ${8 + Math.random() * 12}s;
-      animation-delay: ${Math.random() * 12}s;
+      font-size: ${Math.random() * 1 + 1}rem; /* Adjusted font size */
+      animation-duration: ${Math.random() * 5 + 5}s; /* Adjusted animation duration */
+      animation-delay: ${Math.random() * 5}s; /* Adjusted animation delay */
     `;
     container.appendChild(el);
+
+    // Remove petal after animation
+    setTimeout(() => {
+      el.remove();
+    }, 10000); // Petals removed after 10 seconds
   }
 
-  for (let i = 0; i < PETAL_COUNT; i++) createPetal();
+  // Create petals initially (Reduced on mobile)
+  const petalCount = window.innerWidth < 768 ? 15 : 40; // Dynamic petal count based on screen width
+  for(let i = 0; i < petalCount; i++) {
+    setTimeout(createPetal, Math.random() * 5000); // Stagger initial petal creation
+  }
+
+  // Continuously create petals
+  setInterval(() => {
+    if (document.querySelectorAll('.petal').length < petalCount) {
+      createPetal();
+    }
+  }, 300); // Create a new petal every 300ms if count is below limit
 })();
 
 
@@ -414,4 +430,29 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
   closeBtn.addEventListener('click', () => {
     panel.classList.remove('active');
   });
+
+  // MOBILE NAV SCROLL SPY
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+  const sections = document.querySelectorAll('section[id]');
+
+  function updateActiveNav() {
+    if (window.innerWidth > 768) return;
+    
+    let scrollY = window.pageYOffset;
+    
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 100;
+      const sectionId = current.getAttribute('id');
+      
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        document.querySelector('.mobile-nav-item[href*=' + sectionId + ']')?.classList.add('active');
+      } else {
+        document.querySelector('.mobile-nav-item[href*=' + sectionId + ']')?.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav);
+  window.addEventListener('load', updateActiveNav);
 })();
