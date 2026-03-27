@@ -818,14 +818,46 @@ body {
   margin-bottom: 2.5rem;
 }
 
+.haldi-split-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
 .haldi-details-card {
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  flex: 1;
+  min-width: 320px;
+  max-width: 500px;
   background: rgba(40, 20, 0, 0.4);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   border: 2px solid var(--saffron);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.haldi-card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(245, 166, 35, 0.2);
+  padding-bottom: 1.5rem;
+}
+
+.haldi-person-name {
+  font-family: var(--font-playfair);
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.haldi-person-sub {
+  font-family: var(--font-devanagari);
+  font-size: 1.2rem;
+  color: var(--gold-pale);
 }
 
 .haldi-detail-row {
@@ -1693,6 +1725,13 @@ body {
   
   .haldi-details-card {
     padding: 1.5rem 1rem !important;
+    min-width: 100% !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .haldi-split-container {
+    gap: 1.5rem !important;
+    padding: 0 1rem !important;
   }
   
   .haldi-detail-row {
