@@ -7,30 +7,45 @@
 
 /* ---------- CSS VARIABLES ---------- */
 :root {
-  --maroon: #6B1414;
-  --maroon-dark: #4A0D0D;
-  --maroon-light: #8B2020;
-  --gold: #E8A020;
-  --gold-light: #F5C842;
-  --gold-pale: #F9E5A0;
-  --ivory: #FAF6F0;
-  --ivory-dark: #F0E8DC;
-  --saffron: #F4832A;
-  --blush: #F5DDD3;
-  --haldi: #F5C518;
-  --haldi-dark: #D4A010;
-  --cream: #FFF9F0;
-  --text-dark: #2C1A0E;
-  --text-mid: #5C3A1E;
-  --text-light: #8B5E3C;
+  /* --- NEW PASTEL PALETTE --- */
+  --primary-bg: #FDF6F0;       /* Warm ivory white */
+  --secondary-bg: #FFF0F5;     /* Blush pink tint */
+  --section-alt-bg: #F5F0FF;   /* Soft lavender */
+  --haldi-bg: #FFFBEA;        /* Soft butter yellow */
+  
+  --accent-primary: #C4788A;   /* Dusty rose */
+  --accent-secondary: #9B7BB8; /* Soft lavender purple */
+  --gold: #C8960A;             /* Warm antique gold */
+  --gold-light: #E8B84B;       /* Brighter gold for accents */
+  
+  --text-primary: #3D2535;     /* Deep plum */
+  --text-secondary: #6B4F5A;   /* Muted mauve */
+  --text-haldi: #7A5500;       /* Dark amber for Haldi section */
+  
+  --card-bg: #FFFFFF;
+  --card-border: #EDD5DC;
+  --card-shadow: 0 2px 16px rgba(196, 120, 138, 0.10);
+  
+  --nav-bg: rgba(255, 240, 245, 0.92);
+  --btn-primary: #C4788A;
+  --btn-hover: #A85E72;
+  --btn-venue: #9B7BB8;
+
+  /* Legacy variable mapping to minimize breakages during transition */
+  --maroon: var(--accent-primary);
+  --maroon-dark: #A85E72;
+  --maroon-light: #EDD5DC;
+  --ivory: var(--primary-bg);
+  --ivory-dark: var(--secondary-bg);
+  --saffron: var(--accent-secondary);
   --white: #FFFFFF;
 
   --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   --font-devanagari: 'Noto Serif Devanagari', serif;
 
-  --shadow-gold: 0 4px 30px rgba(232, 160, 32, 0.3);
-  --shadow-maroon: 0 4px 30px rgba(107, 20, 20, 0.4);
+  --shadow-gold: 0 4px 30px rgba(200, 150, 10, 0.2);
+  --shadow-accent: 0 4px 30px rgba(196, 120, 138, 0.2);
   --border-radius: 16px;
   --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -49,8 +64,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--ivory);
-  color: var(--text-dark);
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.7;
 }
@@ -65,21 +80,21 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2.5rem;
-  background: rgba(107, 20, 20, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
-  border-bottom: 2px solid rgba(232, 160, 32, 0.4);
+  border-bottom: 2px solid var(--card-border);
   transition: var(--transition);
 }
 
 .navbar.scrolled {
   padding: 0.6rem 2.5rem;
-  background: rgba(74, 13, 13, 0.97);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  background: var(--nav-bg);
+  box-shadow: 0 2px 10px rgba(196, 120, 138, 0.1);
 }
 
 .nav-brand {
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 1.2rem;
   letter-spacing: 1px;
   display: flex;
@@ -88,7 +103,7 @@ body {
 }
 
 .nav-om {
-  color: var(--gold);
+  color: var(--accent-secondary);
   font-size: 1rem;
 }
 
@@ -99,7 +114,7 @@ body {
 }
 
 .nav-links a {
-  color: rgba(255,255,255,0.85);
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
@@ -114,16 +129,16 @@ body {
   position: absolute;
   bottom: -3px; left: 0; right: 0;
   height: 2px;
-  background: var(--gold);
+  background: var(--accent-primary);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
 
-.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover { color: var(--accent-primary); }
 .nav-links a:hover::after { transform: scaleX(1); }
 
 .nav-hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
@@ -131,7 +146,7 @@ body {
 
 .nav-hamburger span {
   width: 24px; height: 2px;
-  background: var(--gold-light);
+  background: var(--accent-primary);
   border-radius: 2px;
 }
 
@@ -148,14 +163,14 @@ body {
   letter-spacing: 8px;
 }
 
-.section-ornament.light { color: rgba(255,255,255,0.7); }
+.section-ornament.light { color: var(--accent-secondary); opacity: 0.6; }
 .section-ornament.gold { color: var(--gold); }
 
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   text-align: center;
-  color: var(--maroon);
+  color: var(--accent-primary);
   margin-bottom: 0.5rem;
   font-weight: 900;
   line-height: 1.2;
@@ -163,24 +178,24 @@ body {
 
 .section-subtitle {
   text-align: center;
-  color: var(--text-light);
+  color: var(--text-secondary);
   font-size: 1.05rem;
   margin-bottom: 3rem;
   font-style: italic;
   font-family: var(--font-heading);
 }
 
-.section-subtitle.light { color: rgba(255,255,255,0.7); }
+.section-subtitle.light { color: var(--text-secondary); opacity: 0.8; }
 
 /* ---------- SHIMMER TEXT ---------- */
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    var(--maroon) 0%,
-    var(--gold) 35%,
-    var(--gold-light) 50%,
-    var(--gold) 65%,
-    var(--maroon) 100%
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 35%,
+    var(--accent-primary) 50%,
+    var(--accent-secondary) 65%,
+    var(--accent-primary) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -214,7 +229,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 40%, #8B2020 70%, #5C0F0F 100%);
+  background: linear-gradient(135deg, #FFF0F5 0%, #F5F0FF 100%);
 }
 
 .hero-bg-texture {
@@ -246,16 +261,16 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(107,20,20,0.1) 0%, rgba(74,13,13,0.6) 100%);
+  background: radial-gradient(ellipse at center, rgba(255,240,245,0.1) 0%, rgba(245,240,255,0.3) 100%);
 }
 
 .rangoli-bg {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(232,160,32,0.06)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='rgba(232,160,32,0.05)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='rgba(232,160,32,0.05)' stroke-width='1'/%3E%3Cpath d='M100 20 L112 60 L100 50 L88 60 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M100 180 L112 140 L100 150 L88 140 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M20 100 L60 112 L50 100 L60 88 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M180 100 L140 112 L150 100 L140 88 Z' fill='rgba(232,160,32,0.07)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(196,120,138,0.04)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='rgba(196,120,138,0.03)' stroke-width='1'/%3E%3Cpath d='M100 20 L112 60 L100 50 L88 60 Z' fill='rgba(196,120,138,0.04)'/%3E%3C/svg%3E");
   background-size: 300px 300px;
   animation: rangoliSpin 60s linear infinite;
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 @keyframes rangoliSpin {
@@ -277,22 +292,22 @@ body {
 
 .kalash-icon {
   font-size: 3rem;
-  filter: drop-shadow(0 0 20px rgba(232, 160, 32, 0.8));
+  filter: drop-shadow(0 0 20px rgba(196, 120, 138, 0.3));
   animation: kalashPulse 2s ease-in-out infinite alternate;
 }
 
 @keyframes kalashPulse {
-  from { transform: scale(1); filter: drop-shadow(0 0 15px rgba(232,160,32,0.6)); }
-  to { transform: scale(1.1); filter: drop-shadow(0 0 30px rgba(232,160,32,1)); }
+  from { transform: scale(1); filter: drop-shadow(0 0 10px rgba(196, 120, 138, 0.2)); }
+  to { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(196, 120, 138, 0.4)); }
 }
 
 .shri-ganesh {
   font-family: var(--font-devanagari);
-  color: var(--gold-light);
+  color: var(--gold);
   font-size: 1.3rem;
   letter-spacing: 3px;
   margin-top: 0.5rem;
-  text-shadow: 0 0 20px rgba(232,160,32,0.5);
+  text-shadow: 0 0 10px rgba(200, 150, 10, 0.2);
 }
 
 .hero-heading {
@@ -301,14 +316,11 @@ body {
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 1rem;
-  /* Override shimmer for hero to use lighter colors */
   background: linear-gradient(
     90deg,
-    #FAF6F0 0%,
-    var(--gold-light) 30%,
-    #FFE082 50%,
-    var(--gold-light) 70%,
-    #FAF6F0 100%
+    var(--accent-primary) 0%,
+    var(--accent-secondary) 50%,
+    var(--accent-primary) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -328,10 +340,11 @@ body {
 
 .hero-devanagari {
   font-family: var(--font-devanagari);
-  color: rgba(255,255,255,0.75);
+  color: var(--text-secondary);
   font-size: clamp(1rem, 3vw, 1.4rem);
   margin-bottom: 1.5rem;
   letter-spacing: 2px;
+  opacity: 0.8;
 }
 
 .hero-date {
@@ -342,11 +355,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  background: rgba(232, 160, 32, 0.15);
-  border: 1px solid rgba(232, 160, 32, 0.4);
+  background: var(--secondary-bg);
+  border: 1px solid var(--accent-primary);
   border-radius: 50px;
   padding: 0.6rem 1.8rem;
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -358,7 +371,7 @@ body {
 }
 
 .countdown-label {
-  color: rgba(255,255,255,0.6);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -380,15 +393,15 @@ body {
 }
 
 .flip-card {
-  background: linear-gradient(160deg, rgba(232,160,32,0.25), rgba(107,20,20,0.5));
-  border: 2px solid rgba(232, 160, 32, 0.5);
+  background: var(--secondary-bg);
+  border: 2px solid var(--accent-primary);
   border-radius: 12px;
   width: 80px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(232,160,32,0.2);
+  box-shadow: var(--card-shadow);
   position: relative;
   overflow: hidden;
   transition: transform 0.15s ease;
@@ -399,20 +412,20 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 50%;
-  background: rgba(255,255,255,0.05);
+  background: rgba(196, 120, 138, 0.05);
 }
 
 .flip-num {
   font-family: var(--font-heading);
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--gold-light);
+  color: var(--text-primary);
   position: relative;
   z-index: 1;
 }
 
 .flip-label {
-  color: rgba(255,255,255,0.5);
+  color: var(--text-secondary);
   font-size: 0.65rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -420,16 +433,17 @@ body {
 
 .countdown-sep {
   font-size: 2rem;
-  color: var(--gold);
+  color: var(--accent-secondary);
   font-weight: 700;
   margin-bottom: 1.6rem;
 }
 
 .countdown-sublabel {
-  color: rgba(255,255,255,0.45);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   margin-top: 0.8rem;
   font-style: italic;
+  opacity: 0.7;
 }
 
 /* ---------- HERO SCROLL CUE ---------- */
@@ -551,12 +565,12 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--maroon), var(--gold), var(--maroon));
+  background: linear-gradient(90deg, var(--accent-primary), var(--gold), var(--accent-primary));
 }
 
 .couple-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(107, 20, 20, 0.2), 0 0 0 2px var(--gold-light);
+  box-shadow: 0 20px 60px rgba(196, 120, 138, 0.15), 0 0 0 2px var(--card-border);
 }
 
 .card-flower-top {
@@ -585,11 +599,11 @@ body {
 }
 
 .bride-card .avatar-inner {
-  background: linear-gradient(135deg, var(--maroon), var(--saffron));
+  background: var(--accent-primary);
 }
 
 .groom-card .avatar-inner {
-  background: linear-gradient(135deg, var(--maroon-dark), var(--maroon));
+  background: var(--accent-primary);
 }
 
 .avatar-ring {
@@ -610,7 +624,7 @@ body {
 .couple-name {
   font-family: var(--font-heading);
   font-size: 2rem;
-  color: var(--maroon);
+  color: var(--text-primary);
   font-weight: 700;
   margin-bottom: 0.3rem;
 }
@@ -627,17 +641,17 @@ body {
 .couple-family-info { text-align: left; }
 
 .couple-parents {
-  background: var(--ivory-dark);
+  background: var(--secondary-bg);
   border-radius: 12px;
   padding: 0.9rem 1rem;
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 0.8rem;
-  color: var(--text-dark);
+  color: var(--text-primary);
 }
 
 .couple-parents strong {
-  color: var(--maroon);
+  color: var(--accent-primary);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -645,7 +659,7 @@ body {
 
 .couple-grand {
   font-size: 0.8rem;
-  color: var(--text-light);
+  color: var(--text-secondary);
   font-style: italic;
   margin-bottom: 0.8rem;
   padding: 0 0.5rem;
@@ -656,7 +670,7 @@ body {
   align-items: flex-start;
   gap: 0.5rem;
   font-size: 0.88rem;
-  color: var(--text-mid);
+  color: var(--text-secondary);
   padding: 0 0.5rem;
   line-height: 1.5;
 }
@@ -667,9 +681,9 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--gold), var(--saffron), var(--gold));
+  background: linear-gradient(90deg, var(--gold), var(--accent-primary), var(--gold));
   border-radius: 0 0 24px 24px;
-  opacity: 0.6;
+  opacity: 0.3;
 }
 
 /* Couple Divider */
@@ -693,8 +707,8 @@ body {
 .divider-mandala { font-size: 1.2rem; }
 .divider-heart {
   font-size: 2rem;
-  color: var(--maroon);
-  filter: drop-shadow(0 0 8px rgba(107,20,20,0.4));
+  color: var(--accent-primary);
+  filter: drop-shadow(0 0 8px rgba(196, 120, 138, 0.2));
   animation: heartbeat 1.5s ease-in-out infinite;
 }
 
@@ -721,8 +735,8 @@ body {
 }
 
 .icon-small { width: 18px; height: 18px; }
-.icon-gold { color: #E8A020; }
-.icon-maroon { color: #6B1414; }
+.icon-gold { color: var(--gold); }
+.icon-maroon { color: var(--accent-primary); }
 
 .name-divider-container {
   display: inline-flex;
@@ -749,9 +763,11 @@ body {
 
 /* ---------- HALDI SECTION ---------- */
 .haldi-section {
-  background: linear-gradient(135deg, #F5C518 0%, #E8A020 40%, #F0AB10 70%, #D4840A 100%);
+  background: var(--haldi-bg);
   position: relative;
   overflow: hidden;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
 }
 
 .haldi-section::before {
@@ -762,8 +778,8 @@ body {
     60deg,
     transparent,
     transparent 20px,
-    rgba(255,255,255,0.04) 20px,
-    rgba(255,255,255,0.04) 21px
+    rgba(200, 150, 10, 0.04) 20px,
+    rgba(200, 150, 10, 0.04) 21px
   );
 }
 
@@ -777,31 +793,31 @@ body {
 
 .haldi-drip-top {
   top: 0;
-  background: linear-gradient(to bottom right, var(--ivory) 50%, transparent 50%),
-              linear-gradient(to bottom left, var(--ivory) 50%, transparent 50%);
+  background: linear-gradient(to bottom right, var(--primary-bg) 50%, transparent 50%),
+              linear-gradient(to bottom left, var(--primary-bg) 50%, transparent 50%);
   background-size: 20px 100%;
 }
 
 .haldi-drip-bottom {
   bottom: 0;
-  background: linear-gradient(to top right, var(--ivory) 50%, transparent 50%),
-              linear-gradient(to top left, var(--ivory) 50%, transparent 50%);
+  background: linear-gradient(to top right, var(--primary-bg) 50%, transparent 50%),
+              linear-gradient(to top left, var(--primary-bg) 50%, transparent 50%);
   background-size: 20px 100%;
 }
 
 .haldi-content { position: relative; z-index: 2; }
 
 .haldi-title {
-  color: var(--maroon-dark) !important;
-  -webkit-text-fill-color: var(--maroon-dark) !important;
-  text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
+  color: var(--text-haldi) !important;
+  -webkit-text-fill-color: var(--text-haldi) !important;
+  text-shadow: none;
 }
 
 .haldi-subtitle {
   text-align: center;
   font-family: var(--font-devanagari);
   font-size: 1.4rem;
-  color: var(--maroon-dark);
+  color: var(--text-haldi);
   opacity: 0.8;
   margin-bottom: 2.5rem;
 }
@@ -809,11 +825,11 @@ body {
 .haldi-details-card {
   max-width: 600px;
   margin: 0 auto 2rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--card-bg);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(107, 20, 20, 0.2);
-  border: 2px solid rgba(183, 100, 0, 0.3);
+  box-shadow: var(--card-shadow);
+  border: 2px solid var(--gold);
 }
 
 .haldi-detail-row {
@@ -832,7 +848,7 @@ body {
 
 .haldi-detail-row strong {
   display: block;
-  color: var(--maroon);
+  color: var(--text-haldi);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -840,14 +856,14 @@ body {
 }
 
 .haldi-detail-row p {
-  color: var(--text-dark);
+  color: var(--text-haldi);
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .haldi-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(183,100,0,0.3), transparent);
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
   margin: 0.5rem 0;
 }
 
@@ -876,8 +892,8 @@ body {
 
 /* ---------- WEDDING SECTION ---------- */
 .wedding-section {
-  background: linear-gradient(160deg, var(--maroon-dark) 0%, var(--maroon) 50%, #7A1818 100%);
-  color: var(--ivory);
+  background: var(--section-alt-bg);
+  color: var(--text-primary);
   position: relative;
   overflow: hidden;
 }
@@ -885,7 +901,7 @@ body {
 .wedding-pattern-bg {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 5 L35 25 L55 25 L40 37 L45 57 L30 45 L15 57 L20 37 L5 25 L25 25 Z' fill='none' stroke='rgba(232,160,32,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 5 L35 25 L55 25 L40 37 L45 57 L30 45 L15 57 L20 37 L5 25 L25 25 Z' fill='none' stroke='rgba(155,123,184,0.06)' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
 
@@ -897,7 +913,7 @@ body {
 }
 
 .wedding-section .section-title {
-  background: linear-gradient(90deg, #FAF6F0 0%, var(--gold-light) 30%, #FFE082 50%, var(--gold-light) 70%, #FAF6F0 100%);
+  background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--accent-primary) 50%, var(--accent-secondary) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -914,20 +930,20 @@ body {
 }
 
 .wedding-detail-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(232, 160, 32, 0.3);
+  background: var(--card-bg);
+  border: 1px solid var(--accent-secondary);
   border-radius: 20px;
   padding: 2rem 1.5rem;
   text-align: center;
   transition: var(--transition);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(155, 123, 184, 0.08);
 }
 
 .wedding-detail-card:hover {
-  background: rgba(255,255,255,0.12);
-  border-color: rgba(232, 160, 32, 0.6);
+  background: var(--card-bg);
+  border-color: var(--accent-secondary);
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 40px rgba(155, 123, 184, 0.15);
 }
 
 .wc-icon {
@@ -938,7 +954,7 @@ body {
 
 .wedding-detail-card h3 {
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-secondary);
   font-size: 1.1rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -946,14 +962,14 @@ body {
 }
 
 .wc-main {
-  color: var(--white);
+  color: var(--text-primary);
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
 
 .wc-sub {
-  color: rgba(255,255,255,0.7);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -967,12 +983,12 @@ body {
 }
 
 .wc-panchang span {
-  background: rgba(232, 160, 32, 0.15);
-  border: 1px solid rgba(232, 160, 32, 0.3);
+  background: var(--secondary-bg);
+  border: 1px solid var(--accent-secondary);
   border-radius: 20px;
   padding: 0.2rem 0.7rem;
   font-size: 0.75rem;
-  color: var(--gold-pale);
+  color: var(--accent-secondary);
 }
 
 /* Map */
@@ -981,13 +997,13 @@ body {
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
-  border: 2px solid rgba(232, 160, 32, 0.3);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
 }
 
 .map-label {
-  background: rgba(232, 160, 32, 0.2);
-  color: var(--gold-light);
+  background: var(--section-alt-bg);
+  color: var(--accent-secondary);
   text-align: center;
   padding: 0.7rem;
   font-size: 0.9rem;
@@ -1001,17 +1017,17 @@ body {
 
 /* ---------- SNEH BHOJAN ---------- */
 .bhojan-section {
-  background: var(--ivory);
+  background: var(--secondary-bg);
 }
 
 .bhojan-card {
   max-width: 700px;
   margin: 0 auto;
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 24px;
   padding: 3rem 2.5rem;
-  box-shadow: 0 8px 40px rgba(107, 20, 20, 0.1);
-  border: 2px solid rgba(232, 160, 32, 0.15);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1021,7 +1037,7 @@ body {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 5px;
-  background: linear-gradient(90deg, var(--maroon), var(--gold), var(--saffron), var(--gold), var(--maroon));
+  background: linear-gradient(90deg, var(--accent-primary), var(--gold), var(--accent-secondary), var(--gold), var(--accent-primary));
 }
 
 .bhojan-icons-row {
@@ -1042,14 +1058,14 @@ body {
 
 .bhojan-icon-item span {
   font-size: 0.75rem;
-  color: var(--text-light);
+  color: var(--text-secondary);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .bhojan-details {
-  border-top: 1px solid var(--ivory-dark);
-  border-bottom: 1px solid var(--ivory-dark);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
   padding: 1.5rem 0;
   margin-bottom: 1.5rem;
 }
@@ -1059,13 +1075,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem 0;
-  border-bottom: 1px dashed rgba(232,160,32,0.2);
+  border-bottom: 1px dashed var(--card-border);
 }
 
 .bhojan-row:last-child { border-bottom: none; }
 
 .bhojan-label {
-  color: var(--maroon);
+  color: var(--accent-primary);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -1079,7 +1095,7 @@ body {
 }
 
 .bhojan-invite-text {
-  color: var(--text-mid);
+  color: var(--text-secondary);
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 1rem;
@@ -1088,7 +1104,7 @@ body {
 
 /* ---------- RSVP ---------- */
 .rsvp-section {
-  background: linear-gradient(160deg, var(--maroon-dark) 0%, #5C1010 100%);
+  background: var(--primary-bg);
   position: relative;
 }
 
@@ -1107,7 +1123,7 @@ body {
 .rsvp-floral-br { bottom: 20px; right: 20px; transform: rotate(-30deg); }
 
 .rsvp-section .section-title {
-  background: linear-gradient(90deg, #FAF6F0 0%, var(--gold-light) 30%, #FFE082 50%, var(--gold-light) 70%, #FAF6F0 100%);
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-primary) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1120,10 +1136,11 @@ body {
   margin: 0 auto 2.5rem;
   position: relative;
   z-index: 2;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(232,160,32,0.25);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 2rem;
+  box-shadow: var(--card-shadow);
 }
 
 .form-group {
@@ -1132,7 +1149,7 @@ body {
 
 .form-group label {
   display: block;
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 0.85rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -1143,11 +1160,11 @@ body {
 .form-group input[type="text"],
 .form-group textarea {
   width: 100%;
-  background: rgba(255,255,255,0.08);
-  border: 2px solid rgba(232,160,32,0.3);
+  background: var(--white);
+  border: 2px solid var(--card-border);
   border-radius: 12px;
   padding: 0.9rem 1.2rem;
-  color: var(--white);
+  color: var(--text-primary);
   font-size: 1rem;
   font-family: var(--font-body);
   transition: var(--transition);
@@ -1157,14 +1174,14 @@ body {
 
 .form-group input[type="text"]:focus,
 .form-group textarea:focus {
-  border-color: var(--gold);
-  background: rgba(255,255,255,0.12);
-  box-shadow: 0 0 0 3px rgba(232,160,32,0.15);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(196, 120, 138, 0.1);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255,255,255,0.3);
+  color: var(--text-secondary);
+  opacity: 0.4;
 }
 
 .blessings-btn-row {
@@ -1177,10 +1194,10 @@ body {
   flex: 1;
   min-width: 180px;
   padding: 1rem;
-  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  background: var(--accent-primary);
   border: none;
   border-radius: 12px;
-  color: var(--maroon-dark);
+  color: var(--white);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1191,8 +1208,8 @@ body {
 
 .rsvp-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(232,160,32,0.4);
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  box-shadow: 0 8px 25px rgba(196, 120, 138, 0.4);
+  background: var(--btn-hover);
 }
 
 .whatsapp-btn {
@@ -1228,7 +1245,7 @@ body {
 .blessings-wall-title {
   text-align: center;
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
@@ -1241,12 +1258,13 @@ body {
 }
 
 .blessing-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(232,160,32,0.2);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 1.2rem;
   transition: var(--transition);
   animation: blessingAppear 0.5s ease forwards;
+  box-shadow: 0 2px 10px rgba(196, 120, 138, 0.05);
 }
 
 @keyframes blessingAppear {
@@ -1255,28 +1273,29 @@ body {
 }
 
 .blessing-card:hover {
-  border-color: var(--gold);
+  border-color: var(--accent-primary);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(196, 120, 138, 0.15);
 }
 
 .blessing-card-name {
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
 }
 
 .blessing-card-msg {
-  color: rgba(255,255,255,0.75);
+  color: var(--text-primary);
   font-size: 0.9rem;
   line-height: 1.5;
   font-style: italic;
 }
 
 .blessing-card-time {
-  color: rgba(255,255,255,0.3);
+  color: var(--text-secondary);
+  opacity: 0.5;
   font-size: 0.7rem;
   margin-top: 0.6rem;
   text-align: right;
@@ -1284,7 +1303,8 @@ body {
 
 .blessings-empty {
   text-align: center;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-secondary);
+  opacity: 0.6;
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 1rem;
@@ -1304,7 +1324,7 @@ body {
 .family-group-title {
   font-family: var(--font-heading);
   font-size: 1.4rem;
-  color: var(--maroon);
+  color: var(--accent-primary);
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -1350,14 +1370,14 @@ body {
 
 .family-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(107, 20, 20, 0.15);
-  border-color: var(--gold-light);
+  box-shadow: 0 12px 30px rgba(196, 120, 138, 0.15);
+  border-color: var(--accent-primary);
 }
 
 .fc-avatar {
   width: 56px; height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--maroon), var(--saffron));
+  background: var(--accent-primary);
   color: var(--white);
   font-family: var(--font-devanagari);
   font-size: 1.3rem;
@@ -1492,15 +1512,15 @@ body {
     left: 0;
     right: 0;
     height: 70px;
-    background: rgba(107, 20, 20, 0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(232, 160, 32, 0.4);
+    border-top: 1px solid var(--card-border);
     z-index: 1000;
     justify-content: space-around;
     align-items: center;
     padding-bottom: env(safe-area-inset-bottom);
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 -4px 20px rgba(196, 120, 138, 0.1);
   }
 
   .mobile-nav-item {
@@ -1508,14 +1528,16 @@ body {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--accent-secondary);
+    opacity: 0.6;
     gap: 4px;
     flex: 1;
     transition: var(--transition);
   }
 
   .mobile-nav-item.active {
-    color: var(--gold-light);
+    color: var(--accent-primary);
+    opacity: 1;
   }
 
   .nav-icon {
@@ -1608,7 +1630,7 @@ body {
   }
   
   .bride-card {
-    border-right: 1px solid #E8A020 !important;
+    border-right: 1px solid var(--card-border) !important;
   }
   
   .card-flower-top, 
@@ -1847,15 +1869,16 @@ body {
 .blessings-loading {
   text-align: center;
   padding: 2rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-secondary);
+  opacity: 0.6;
   font-family: var(--font-heading);
   font-style: italic;
 }
 
 .loading-spinner {
   width: 40px; height: 40px;
-  border: 3px solid rgba(232,160,32,0.2);
-  border-top-color: var(--gold);
+  border: 3px solid rgba(196, 120, 138, 0.2);
+  border-top-color: var(--accent-primary);
   border-radius: 50%;
   margin: 0 auto 1rem;
   animation: spinLoader 0.8s linear infinite;
@@ -1867,7 +1890,8 @@ body {
 
 .blessings-count {
   text-align: center;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-secondary);
+  opacity: 0.5;
   font-size: 0.75rem;
   margin-top: 1.5rem;
   letter-spacing: 1px;
@@ -1902,26 +1926,26 @@ body {
 }
 
 .admin-modal {
-  background: var(--maroon-dark);
-  border: 2px solid rgba(232,160,32,0.4);
+  background: var(--secondary-bg);
+  border: 2px solid var(--accent-primary);
   border-radius: 20px;
   padding: 2.5rem;
   max-width: 400px;
   width: 90%;
   text-align: center;
   position: relative;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 80px rgba(196, 120, 138, 0.2);
 }
 
 .admin-modal h3 {
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 .admin-modal p {
-  color: rgba(255,255,255,0.6);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   margin-bottom: 1.5rem;
 }
@@ -1948,10 +1972,10 @@ body {
 .admin-login-btn {
   width: 100%;
   padding: 0.9rem;
-  background: linear-gradient(135deg, var(--gold), var(--saffron));
+  background: var(--accent-primary);
   border: none;
   border-radius: 12px;
-  color: var(--maroon-dark);
+  color: var(--white);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -1960,7 +1984,7 @@ body {
 
 .admin-login-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232,160,32,0.4);
+  box-shadow: 0 6px 20px rgba(196, 120, 138, 0.3);
 }
 
 .admin-modal-close {
@@ -1968,13 +1992,14 @@ body {
   top: 12px; right: 16px;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-secondary);
   font-size: 1.5rem;
   cursor: pointer;
   transition: var(--transition);
+  opacity: 0.6;
 }
 
-.admin-modal-close:hover { color: var(--white); }
+.admin-modal-close:hover { opacity: 1; color: var(--text-primary); }
 
 .admin-error {
   color: #ff6b6b;
@@ -1991,11 +2016,11 @@ body {
   width: 420px;
   max-width: 95vw;
   height: 100vh;
-  background: linear-gradient(180deg, var(--maroon-dark), #2A0808);
-  border-left: 3px solid rgba(232,160,32,0.4);
+  background: var(--primary-bg);
+  border-left: 3px solid var(--accent-primary);
   z-index: 10001;
   flex-direction: column;
-  box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+  box-shadow: -10px 0 40px rgba(196, 120, 138, 0.15);
   animation: slideInRight 0.3s ease;
 }
 
@@ -2013,13 +2038,13 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 1.5rem;
-  background: rgba(0,0,0,0.3);
-  border-bottom: 1px solid rgba(232,160,32,0.3);
+  background: var(--secondary-bg);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .admin-header h3 {
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 1.1rem;
 }
 
@@ -2030,24 +2055,25 @@ body {
 }
 
 .admin-badge {
-  background: rgba(232,160,32,0.2);
-  border: 1px solid rgba(232,160,32,0.3);
+  background: var(--secondary-bg);
+  border: 1px solid var(--accent-secondary);
   border-radius: 20px;
   padding: 0.2rem 0.8rem;
-  color: var(--gold-light);
+  color: var(--accent-secondary);
   font-size: 0.75rem;
 }
 
 .admin-close-btn {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-secondary);
   font-size: 1.5rem;
   cursor: pointer;
   transition: var(--transition);
+  opacity: 0.6;
 }
 
-.admin-close-btn:hover { color: var(--white); }
+.admin-close-btn:hover { opacity: 1; color: var(--text-primary); }
 
 .admin-body {
   flex: 1;
@@ -2058,17 +2084,19 @@ body {
 }
 
 .admin-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(232,160,32,0.2);
+  background: var(--white);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   padding: 1rem;
   margin-bottom: 0.8rem;
   transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(196, 120, 138, 0.05);
 }
 
 .admin-card:hover {
-  border-color: rgba(232,160,32,0.5);
-  background: rgba(255,255,255,0.1);
+  border-color: var(--accent-primary);
+  background: var(--white);
+  box-shadow: 0 6px 15px rgba(196, 120, 138, 0.1);
 }
 
 .admin-card-top {
@@ -2080,7 +2108,7 @@ body {
 
 .admin-card-name {
   font-family: var(--font-heading);
-  color: var(--gold-light);
+  color: var(--accent-primary);
   font-size: 0.95rem;
   font-weight: 700;
 }
@@ -2102,7 +2130,7 @@ body {
 }
 
 .admin-card-msg {
-  color: rgba(255,255,255,0.7);
+  color: var(--text-primary);
   font-size: 0.85rem;
   font-style: italic;
   line-height: 1.4;
@@ -2112,6 +2140,7 @@ body {
 .admin-card-meta {
   display: flex;
   justify-content: space-between;
-  color: rgba(255,255,255,0.35);
+  color: var(--text-secondary);
   font-size: 0.7rem;
+  opacity: 0.5;
 }
