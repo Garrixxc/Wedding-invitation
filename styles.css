@@ -1534,31 +1534,93 @@ body {
   }
 
   /* Couple Mobile Refinements */
+  .couple-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .couple-section .section-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .couple-section .section-subtitle {
+    font-size: 0.8rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
   .couple-cards {
-    flex-direction: column !important;
-    align-items: center !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    max-width: 100% !important;
   }
   
   .couple-card {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  .bride-card {
+    border-right: 1px solid #E8A020 !important;
+  }
+  
+  .card-flower-top, 
+  .couple-divider, 
+  .card-floral-border,
+  .couple-role span {
+    display: none !important;
+  }
+  
+  .couple-avatar {
+    width: 64px !important;
+    height: 64px !important;
+    margin: 0 auto 0.5rem !important;
+  }
+  
+  .avatar-inner {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .avatar-ring {
+    inset: -2px !important;
   }
   
   .couple-name {
-    font-size: 1.8rem !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.1rem !important;
   }
   
-  .couple-divider {
-    flex-direction: column !important;
-    padding: 2rem 0 !important;
+  .couple-role {
+    font-size: 0.6rem !important;
+    margin-bottom: 0.8rem !important;
+    letter-spacing: 2px !important;
   }
   
-  .couple-divider .divider-line {
-    width: 2px !important;
-    height: 60px !important;
-    background: linear-gradient(to bottom, transparent, var(--gold), transparent) !important;
+  .couple-family-info {
+    text-align: center !important;
+  }
+  
+  .couple-parents strong {
+    font-size: 0.7rem !important;
+  }
+  
+  .couple-parents {
+    font-size: 0.75rem !important;
+    padding: 0.6rem 0.4rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .couple-village {
+    font-size: 0.65rem !important;
+    justify-content: center !important;
+    padding: 0 !important;
   }
 
   /* Haldi Mobile Refinements */
