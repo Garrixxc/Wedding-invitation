@@ -1721,32 +1721,66 @@ body {
   /* Haldi Mobile Refinements */
   .haldi-section {
     background: #3D1A00 !important; /* Revert to Dark Brown */
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
   
-  .haldi-details-card {
-    padding: 1.5rem 1rem !important;
-    min-width: 100% !important;
-    margin-bottom: 1.5rem !important;
+  .haldi-split-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+    max-width: 100% !important;
   }
 
-  .haldi-split-container {
-    gap: 1.5rem !important;
-    padding: 0 1rem !important;
+  .haldi-details-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
   }
-  
+
+  .haldi-details-card.bride {
+    border-right: 1px solid rgba(232, 160, 32, 0.1) !important;
+  }
+
+  .haldi-card-header {
+    margin-bottom: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: none !important;
+  }
+
+  .haldi-person-name {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  .haldi-person-sub {
+    font-size: 0.65rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
   .haldi-detail-row {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 0.5rem !important;
+    gap: 0.2rem !important;
+    padding: 0.4rem 0 !important;
   }
   
   .haldi-detail-row p {
-    font-size: 1rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+    color: var(--gold-pale) !important;
   }
-  
+
+  .haldi-detail-row span,
   .haldi-divider {
-    margin: 1rem 0 !important;
+    display: none !important;
   }
 
   /* Wedding Ceremony Mobile Refinements */
