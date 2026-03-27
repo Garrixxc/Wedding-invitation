@@ -15,7 +15,7 @@
     const petal = document.createElement('span');
     petal.className = 'hero-petal';
     petal.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
-    
+
     // Randomized properties per spec
     const duration = 5 + Math.random() * 4; // 5s to 9s
     const delay = Math.random() * 7; // 0s to 7s
@@ -341,7 +341,6 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
     let text = `🌸 *Wedding Blessings for Neha & Prasad* 🌸\n\n`;
     if (name) text += `From: ${name}\n`;
     if (message) text += `Message: ${message}\n`;
-    text += `\n💒 22 April 2026 · Suryamahal Hall, Goregaon East\n`;
     text += `🌺 Wishing the couple a lifetime of happiness!`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   });
@@ -431,14 +430,14 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 
   function updateActiveNav() {
     if (window.innerWidth > 768) return;
-    
+
     let scrollY = window.pageYOffset;
-    
+
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 100;
       const sectionId = current.getAttribute('id');
-      
+
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
         document.querySelector('.mobile-nav-item[href*=' + sectionId + ']')?.classList.add('active');
       } else {
