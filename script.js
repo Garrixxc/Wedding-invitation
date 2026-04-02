@@ -3,6 +3,79 @@
    Firebase Firestore Blessings, Countdown, Admin, Animations
    ============================================================ */
 
+/* ---- HERO VIDEO UPGRADE (auto-activates if NehaPrasad_video.mp4 exists) ---- */
+(function () {
+  const img = document.getElementById('heroCoupleImg');
+  if (!img) return;
+
+  const video = document.createElement('video');
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.className = 'hero-couple-video';
+
+  const source = document.createElement('source');
+  source.src = 'NehaPrasad_video.mp4';
+  source.type = 'video/mp4';
+  video.appendChild(source);
+
+  video.addEventListener('canplay', () => {
+    img.style.display = 'none';
+    img.parentNode.insertBefore(video, img);
+    video.style.display = 'block';
+    video.play().catch(() => {});
+  });
+
+  // Pre-load — if file doesn't exist, canplay never fires and photo stays
+  img.parentNode.appendChild(video);
+})();
+
+/* ---- HERO BOKEH ORBS ---- */
+(function () {
+  const container = document.getElementById('heroBokeh');
+  if (!container) return;
+
+  const colors = [
+    'rgba(232, 160, 32,  0.28)',
+    'rgba(248, 200, 64,  0.22)',
+    'rgba(245, 166, 35,  0.20)',
+    'rgba(255, 220, 100, 0.18)',
+    'rgba(200, 110, 25,  0.24)',
+    'rgba(255, 170,  50, 0.20)',
+  ];
+
+  // x%, y%, size px, duration s, delay s
+  const orbs = [
+    [8,  12, 130, 14, 0  ],
+    [78, 18,  85, 18, 2.5],
+    [52, 68, 105, 16, 4  ],
+    [22, 58,  65, 20, 1  ],
+    [88, 52,  95, 13, 5.5],
+    [38, 28,  75, 17, 3  ],
+    [68, 82,  55, 15, 6.5],
+    [14, 78,  90, 19, 7  ],
+    [93,  8,  70, 22, 2  ],
+    [48, 48, 115, 25, 9  ],
+    [60, 20,  50, 12, 1.5],
+    [30, 90,  80, 21, 8  ],
+  ];
+
+  orbs.forEach(([x, y, size, dur, delay], i) => {
+    const dot = document.createElement('div');
+    dot.className = 'bokeh-dot';
+    dot.style.cssText = `
+      left:${x}%; top:${y}%;
+      width:${size}px; height:${size}px;
+      background:${colors[i % colors.length]};
+      filter:blur(${Math.round(size * 0.22)}px);
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+    `;
+    container.appendChild(dot);
+  });
+})();
+
 /* ---- HERO FLOWERS (🌸 🌼 🌺) ---- */
 (function () {
   const heroContainer = document.getElementById('heroPetals');

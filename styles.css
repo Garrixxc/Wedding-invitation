@@ -213,12 +213,132 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 40%, #8B2020 70%, #5C0F0F 100%);
+  background: var(--maroon-dark); /* photo fallback */
+}
+
+/* ---- Couple photo background ---- */
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-photo-cinematic {
+  width: 100%;
+  height: 100%;
+  animation: cinematicReveal 2.8s ease-out forwards;
+}
+
+@keyframes cinematicReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-couple-img,
+.hero-couple-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  animation:
+    kenBurns  32s ease-in-out 2.8s infinite alternate,
+    colorGrade 9s ease-in-out 2.8s infinite alternate;
+  transform-origin: center center;
+  will-change: transform, filter;
+}
+
+.hero-couple-video {
+  display: none; /* shown by JS only once it loads */
+}
+
+@keyframes kenBurns {
+  0%   { transform: scale(1.0)  translate(0%,     0%); }
+  25%  { transform: scale(1.06) translate(-1.2%,  0.8%); }
+  50%  { transform: scale(1.11) translate(0.5%,  -0.6%); }
+  75%  { transform: scale(1.07) translate(1.4%,   0.4%); }
+  100% { transform: scale(1.0)  translate(0%,     0%); }
+}
+
+/* Slow warm↔luminous colour grade breath */
+@keyframes colorGrade {
+  0%   { filter: brightness(0.82) saturate(0.72) sepia(0.22); }
+  50%  { filter: brightness(0.90) saturate(0.82) sepia(0.10) hue-rotate(6deg); }
+  100% { filter: brightness(0.82) saturate(0.72) sepia(0.22); }
+}
+
+/* ---- Bokeh orbs ---- */
+.hero-bokeh {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bokeh-dot {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: bokehPulse ease-in-out infinite alternate;
+}
+
+@keyframes bokehPulse {
+  0%   { opacity: 0;   transform: translate(-50%, -50%) scale(0.75); }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.65; }
+  100% { opacity: 0.15; transform: translate(-50%, -53%) scale(1.15); }
+}
+
+/* ---- Film light-leak sweep ---- */
+.hero-light-leak {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-light-leak::before {
+  content: '';
+  position: absolute;
+  width: 55%;
+  height: 220%;
+  top: -60%;
+  left: -60%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(232, 160, 32, 0.05) 25%,
+    rgba(248, 210, 90,  0.13) 50%,
+    rgba(232, 160, 32, 0.05) 75%,
+    transparent 100%
+  );
+  transform: rotate(-18deg);
+  animation: lightLeakSweep 14s ease-in-out infinite;
+}
+
+@keyframes lightLeakSweep {
+  0%        { left: -70%;  opacity: 0; }
+  8%        { opacity: 1; }
+  50%       { left: 80%;  opacity: 0.9; }
+  65%       { opacity: 0; }
+  100%      { left: 160%; opacity: 0; }
+}
+
+/* ---- Maroon/gold colour tint (multiply blend) ---- */
+.hero-photo-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(107, 20, 20, 0.48);
+  mix-blend-mode: multiply;
 }
 
 .hero-bg-texture {
   position: absolute;
   inset: 0;
+  z-index: 3;
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -242,15 +362,21 @@ body {
   100% { background-position: 100px 100px, -100px 100px; }
 }
 
+/* Multi-layer overlay: dark top for nav, dark bottom for text, edge vignette */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(107,20,20,0.1) 0%, rgba(74,13,13,0.6) 100%);
+  z-index: 2;
+  background:
+    linear-gradient(to bottom,  rgba(20, 4, 4, 0.72) 0%,  rgba(61,12,12,0.25) 18%, transparent 40%),
+    linear-gradient(to top,     rgba(20, 4, 4, 0.96) 0%,  rgba(61,12,12,0.55) 28%, transparent 52%),
+    radial-gradient(ellipse at center, transparent 35%, rgba(20, 4, 4, 0.45) 100%);
 }
 
 .rangoli-bg {
   position: absolute;
   inset: 0;
+  z-index: 3;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(232,160,32,0.06)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='rgba(232,160,32,0.05)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='rgba(232,160,32,0.05)' stroke-width='1'/%3E%3Cpath d='M100 20 L112 60 L100 50 L88 60 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M100 180 L112 140 L100 150 L88 140 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M20 100 L60 112 L50 100 L60 88 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M180 100 L140 112 L150 100 L140 88 Z' fill='rgba(232,160,32,0.07)'/%3E%3C/svg%3E");
   background-size: 300px 300px;
   animation: rangoliSpin 60s linear infinite;
@@ -472,6 +598,7 @@ body {
   position: absolute;
   left: 0; right: 0;
   height: 5px;
+  z-index: 6;
   background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
 }
 
@@ -484,7 +611,7 @@ body {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero-petal {
