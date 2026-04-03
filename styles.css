@@ -2468,3 +2468,25 @@ body {
   pointer-events: none;
   z-index: -1;
 }
+
+/* ============================================================
+   HERO CLEANUP — remove visual noise, let the video breathe
+   ============================================================ */
+
+/* Kill the maroon multiply tint entirely — not needed with video */
+.hero-photo-tint { display: none; }
+
+/* Kill the spinning rangoli, bokeh orbs, and light-leak — all clash
+   with the illustrated video and make the hero look messy */
+.rangoli-bg     { display: none; }
+.hero-bokeh     { display: none; }
+.hero-light-leak { display: none; }
+
+/* When the video is active, also remove the emoji flower petals
+   (the video already has its own animated petals) */
+.hero-has-video .hero-petals { display: none; }
+
+/* Tighten the Sanskrit invocation line spacing at top of hero */
+.shri-ganesh {
+  margin-bottom: 1rem;
+}
