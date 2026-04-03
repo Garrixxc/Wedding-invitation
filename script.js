@@ -16,7 +16,7 @@
   video.className = 'hero-couple-video';
 
   const source = document.createElement('source');
-  source.src = 'NehaPrasad_video.mp4';
+  source.src = 'Animated_wedding_video_202604022117.mp4';
   source.type = 'video/mp4';
   video.appendChild(source);
 
@@ -25,6 +25,8 @@
     img.parentNode.insertBefore(video, img);
     video.style.display = 'block';
     video.play().catch(() => {});
+    // Let CSS know the video is live so overlays can be adjusted
+    document.getElementById('hero')?.classList.add('hero-has-video');
   });
 
   // Pre-load — if file doesn't exist, canplay never fires and photo stays

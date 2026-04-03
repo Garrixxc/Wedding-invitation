@@ -235,21 +235,30 @@ body {
   to   { opacity: 1; }
 }
 
+/* Shared base */
 .hero-couple-img,
 .hero-couple-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Photo — Ken Burns + colour-grade breath */
+.hero-couple-img {
   object-position: center 35%;
   animation:
-    kenBurns  32s ease-in-out 2.8s infinite alternate,
-    colorGrade 9s ease-in-out 2.8s infinite alternate;
+    kenBurns   32s ease-in-out 2.8s infinite alternate,
+    colorGrade  9s ease-in-out 2.8s infinite alternate;
   transform-origin: center center;
   will-change: transform, filter;
 }
 
+/* Video — no filters, no extra motion; the illustration plays as-is */
 .hero-couple-video {
-  display: none; /* shown by JS only once it loads */
+  display: none;         /* shown by JS once it loads */
+  object-position: center center;
+  filter: none;
+  animation: none;
 }
 
 @keyframes kenBurns {
@@ -316,6 +325,31 @@ body {
   );
   transform: rotate(-18deg);
   animation: lightLeakSweep 14s ease-in-out infinite;
+}
+
+/* ---- Video-active overrides ---- */
+/* When the illustrated video is playing, remove the maroon tint and
+   lighten the gradient overlays so the artwork shows through cleanly. */
+.hero-has-video .hero-photo-tint {
+  opacity: 0;
+}
+.hero-has-video .hero-overlay {
+  background:
+    /* Very light top so nav links stay readable */
+    linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 14%),
+    /* Bottom gradient for countdown/names readability */
+    linear-gradient(to top,    rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.35) 22%, transparent 48%);
+}
+/* Subtle golden light-leak still looks good on the illustration */
+.hero-has-video .hero-light-leak::before {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(248, 210, 120, 0.04) 30%,
+    rgba(255, 220, 140, 0.08) 50%,
+    rgba(248, 210, 120, 0.04) 70%,
+    transparent 100%
+  );
 }
 
 @keyframes lightLeakSweep {
