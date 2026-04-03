@@ -526,3 +526,109 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
   window.addEventListener('scroll', updateActiveNav);
   window.addEventListener('load', updateActiveNav);
 })();
+
+/* ===================== PHOTO GALLERY CAROUSEL ===================== */
+(function () {
+  const photos = [
+    { src: 'pictures/Gemini_Generated_Image_7lgw8p7lgw8p7lgw.png',   caption: 'The Boatride',          location: 'Ganga · Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_addswpaddswpadds.png',    caption: 'Sunset on the Ganga',   location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_c0owr4c0owr4c0ow.png',    caption: 'Ganga Aarti',           location: 'Dashashwamedh Ghat' },
+    { src: 'pictures/Gemini_Generated_Image_uxssfeuxssfeuxss.png',    caption: 'The Sacred Flame',      location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_vypwy0vypwy0vypw.png',    caption: 'Dawn at the Ganga',     location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_8wyv528wyv528wyv.png',    caption: 'Together at the Ghats', location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_s4owads4owads4ow.png',    caption: 'Golden Hour',           location: 'Varanasi Ghats' },
+    { src: 'pictures/Gemini_Generated_Image_kkrhcxkkrhcxkkrh.png',    caption: 'A Quiet Morning',       location: 'Varanasi' },
+  ];
+
+  const track  = document.getElementById('galleryTrack');
+  const dotsEl = document.getElementById('galleryDots');
+  if (!track || !dotsEl) return;
+
+  // Build slides
+  photos.forEach((p, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'gallery-slide' + (i === 0 ? ' is-active' : '');
+    slide.innerHTML =
+      `<img src="${p.src}" alt="${p.caption}" loading="${i === 0 ? 'eager' : 'lazy'}" draggable="false">` +
+      `<div class="gallery-caption">` +
+        `<span class="gallery-location">${p.location}</span>` +
+        `<span class="gallery-caption-text">${p.caption}</span>` +
+      `</div>` +
+      `<div class="gallery-counter">${i + 1} / ${photos.length}</div>`;
+    track.appendChild(slide);
+  });
+
+  // Build dots
+  photos.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+    dot.addEventListener('click', () => { clearAuto(); goTo(i); startAuto(); });
+    dotsEl.appendChild(dot);
+  });
+
+  const dots   = dotsEl.querySelectorAll('.gallery-dot');
+  const slides = track.querySelectorAll('.gallery-slide');
+  let current  = 0;
+  let autoTimer;
+
+  function goTo(idx) {
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('active');
+    current = (idx + photos.length) % photos.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.getElementById('galleryNext')?.addEventListener('click', () => { clearAuto(); next(); startAuto(); });
+  document.getElementById('galleryPrev')?.addEventListener('click', () => { clearAuto(); prev(); startAuto(); });
+
+  // Touch swipe
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isSwiping   = false;
+
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isSwiping = false;
+  }, { passive: true });
+
+  track.addEventListener('touchmove', e => {
+    const dx = Math.abs(e.touches[0].clientX - touchStartX);
+    const dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (dx > dy && dx > 8) isSwiping = true;
+  }, { passive: true });
+
+  track.addEventListener('touchend', e => {
+    if (!isSwiping) return;
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 40) { clearAuto(); (dx > 0 ? next : prev)(); startAuto(); }
+    isSwiping = false;
+  }, { passive: true });
+
+  // Keyboard nav when gallery is visible
+  document.addEventListener('keydown', e => {
+    const gallery = document.getElementById('gallery');
+    if (!gallery) return;
+    const rect = gallery.getBoundingClientRect();
+    if (rect.top > window.innerHeight || rect.bottom < 0) return;
+    if (e.key === 'ArrowRight') { clearAuto(); next(); startAuto(); }
+    if (e.key === 'ArrowLeft')  { clearAuto(); prev(); startAuto(); }
+  });
+
+  // Auto-advance
+  function startAuto() { autoTimer = setInterval(next, 4500); }
+  function clearAuto()  { clearInterval(autoTimer); }
+
+  // Pause auto when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearAuto(); else startAuto();
+  });
+
+  startAuto();
+})();
