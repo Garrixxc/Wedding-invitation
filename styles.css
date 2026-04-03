@@ -2603,3 +2603,9 @@ body {
     font-size: 1.7rem;
   }
 }
+
+/* Hide photo by default — only JS shows it if video fails to load.
+   Prevents the old photo flashing while the video is buffering. */
+.hero-couple-img {
+  display: none;
+}

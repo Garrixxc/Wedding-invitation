@@ -21,15 +21,17 @@
   video.appendChild(source);
 
   video.addEventListener('canplay', () => {
-    img.style.display = 'none';
     img.parentNode.insertBefore(video, img);
     video.style.display = 'block';
     video.play().catch(() => {});
-    // Let CSS know the video is live so overlays can be adjusted
     document.getElementById('hero')?.classList.add('hero-has-video');
   });
 
-  // Pre-load — if file doesn't exist, canplay never fires and photo stays
+  // If video errors or takes >4s, fall back to the photo
+  const showPhoto = () => { img.style.display = 'block'; };
+  video.addEventListener('error', showPhoto);
+  setTimeout(() => { if (video.readyState < 2) showPhoto(); }, 4000);
+
   img.parentNode.appendChild(video);
 })();
 
