@@ -8,7 +8,7 @@
 /* ---------- CSS VARIABLES ---------- */
 :root {
   /* --- LUXURY MAROON & GOLD PALETTE --- */
-  --maroon-dark: #3D0C0C;
+  --maroon-dark: #0d0303;
   --maroon: #6B1414;
   --maroon-light: #8B2020;
   --gold: #E8A020;
@@ -213,7 +213,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: var(--maroon-dark); /* photo fallback */
+  background: #0d0303; /* photo fallback */
 }
 
 /* ---- Couple photo background ---- */
@@ -888,7 +888,7 @@ body {
 .haldi-section {
   background: #3D1A00;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-top: 2px solid var(--gold);
   border-bottom: 2px solid var(--gold);
 }
@@ -1051,7 +1051,7 @@ body {
   background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%);
   color: var(--text-body);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .wedding-pattern-bg {
@@ -2359,4 +2359,78 @@ body {
   color: var(--text-body);
   font-size: 0.7rem;
   opacity: 0.5;
+}
+
+/* ============================================================
+   DAMASK / BROCADE BACKGROUND TEXTURE  (Step 4)
+   Tonal SVG tile — central 8-petal flower + quarter corners +
+   diamond accents. Two opacity variants for dark vs ivory bgs.
+   ============================================================ */
+
+/* Dark-section variant: rgba(232,160,32,0.045) on maroon */
+.haldi-section,
+.bhojan-section {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3C!-- Central 8-petal flower --%3E%3Cellipse cx='100' cy='78' rx='7' ry='18' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='100' cy='122' rx='7' ry='18' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='78' cy='100' rx='18' ry='7' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='122' cy='100' rx='18' ry='7' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='87' cy='87' rx='7' ry='17' transform='rotate(-45 87 87)' fill='rgba(232,160,32,0.04)'/%3E%3Cellipse cx='113' cy='87' rx='7' ry='17' transform='rotate(45 113 87)' fill='rgba(232,160,32,0.04)'/%3E%3Cellipse cx='87' cy='113' rx='7' ry='17' transform='rotate(45 87 113)' fill='rgba(232,160,32,0.04)'/%3E%3Cellipse cx='113' cy='113' rx='7' ry='17' transform='rotate(-45 113 113)' fill='rgba(232,160,32,0.04)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(232,160,32,0.05)'/%3E%3C!-- Quarter petals at tile corners --%3E%3Cellipse cx='0' cy='0' rx='7' ry='14' transform='rotate(-45 0 0)' fill='rgba(232,160,32,0.035)'/%3E%3Cellipse cx='200' cy='0' rx='7' ry='14' transform='rotate(45 200 0)' fill='rgba(232,160,32,0.035)'/%3E%3Cellipse cx='0' cy='200' rx='7' ry='14' transform='rotate(45 0 200)' fill='rgba(232,160,32,0.035)'/%3E%3Cellipse cx='200' cy='200' rx='7' ry='14' transform='rotate(-45 200 200)' fill='rgba(232,160,32,0.035)'/%3E%3C!-- Small diamond accents --%3E%3Cpath d='M100 56 L104 62 L100 68 L96 62Z' fill='rgba(232,160,32,0.04)'/%3E%3Cpath d='M100 132 L104 138 L100 144 L96 138Z' fill='rgba(232,160,32,0.04)'/%3E%3Cpath d='M56 100 L62 104 L68 100 L62 96Z' fill='rgba(232,160,32,0.04)'/%3E%3Cpath d='M132 100 L138 104 L144 100 L138 96Z' fill='rgba(232,160,32,0.04)'/%3E%3C/svg%3E");
+}
+
+/* Ivory-section variant: slightly stronger so it shows on light bg */
+.couple-section {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='78' rx='7' ry='18' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='100' cy='122' rx='7' ry='18' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='78' cy='100' rx='18' ry='7' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='122' cy='100' rx='18' ry='7' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='87' cy='87' rx='7' ry='17' transform='rotate(-45 87 87)' fill='rgba(200,150,30,0.055)'/%3E%3Cellipse cx='113' cy='87' rx='7' ry='17' transform='rotate(45 113 87)' fill='rgba(200,150,30,0.055)'/%3E%3Cellipse cx='87' cy='113' rx='7' ry='17' transform='rotate(45 87 113)' fill='rgba(200,150,30,0.055)'/%3E%3Cellipse cx='113' cy='113' rx='7' ry='17' transform='rotate(-45 113 113)' fill='rgba(200,150,30,0.055)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(200,150,30,0.065)'/%3E%3Cellipse cx='0' cy='0' rx='7' ry='14' transform='rotate(-45 0 0)' fill='rgba(200,150,30,0.045)'/%3E%3Cellipse cx='200' cy='0' rx='7' ry='14' transform='rotate(45 200 0)' fill='rgba(200,150,30,0.045)'/%3E%3Cellipse cx='0' cy='200' rx='7' ry='14' transform='rotate(45 0 200)' fill='rgba(200,150,30,0.045)'/%3E%3Cellipse cx='200' cy='200' rx='7' ry='14' transform='rotate(-45 200 200)' fill='rgba(200,150,30,0.045)'/%3E%3Cpath d='M100 56 L104 62 L100 68 L96 62Z' fill='rgba(200,150,30,0.055)'/%3E%3Cpath d='M100 132 L104 138 L100 144 L96 138Z' fill='rgba(200,150,30,0.055)'/%3E%3Cpath d='M56 100 L62 104 L68 100 L62 96Z' fill='rgba(200,150,30,0.055)'/%3E%3Cpath d='M132 100 L138 104 L144 100 L138 96Z' fill='rgba(200,150,30,0.055)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   BOTANICAL FLOWER CORNER DECORATIONS  (Step 5)
+   ============================================================ */
+.section-flowers {
+  position: absolute;
+  top: -60px;
+  left: 0; right: 0;
+  height: 160px;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
+}
+
+.flower-corner {
+  position: absolute;
+  width: 220px;
+  opacity: 0.82;
+  top: 0;
+}
+
+.flower-corner--left  { left: -20px; }
+.flower-corner--right { right: -20px; transform: scaleX(-1); }
+
+@media (max-width: 600px) {
+  .flower-corner { width: 130px; }
+}
+
+/* Ensure sections that get flowers have position:relative + overflow:visible */
+.couple-section,
+.haldi-section,
+.wedding-section,
+.bhojan-section {
+  position: relative;
+  overflow: visible;
+}
+
+/* ============================================================
+   ORNATE FRAME WRAP — hero invocation  (Step 6)
+   ============================================================ */
+.hero-ornate-frame-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.hero-ornate-frame {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
 }

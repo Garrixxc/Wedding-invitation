@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <!-- Transparent background — no rect fill -->
+  <!-- Ornate baroque picture frame, cream/ivory tones, carved wood feel -->
+
+  <!-- =====================================================
+       OUTER FRAME BORDER (main rectangle body)
+       ===================================================== -->
+  <!-- Outer rect -->
+  <rect x="8" y="8" width="384" height="544" rx="6" ry="6"
+        fill="none" stroke="#C8B860" stroke-width="2.5" opacity="0.6"/>
+
+  <!-- Main frame body — four sides as filled paths -->
+  <!-- Top bar -->
+  <path d="M 20,20 L 380,20 L 380,100 L 20,100 Z"
+        fill="#F5EAC0" stroke="#D4C070" stroke-width="1.2"/>
+  <!-- Bottom bar -->
+  <path d="M 20,460 L 380,460 L 380,540 L 20,540 Z"
+        fill="#F5EAC0" stroke="#D4C070" stroke-width="1.2"/>
+  <!-- Left bar -->
+  <path d="M 20,100 L 70,100 L 70,460 L 20,460 Z"
+        fill="#EDE080" stroke="#D4C070" stroke-width="1.2"/>
+  <!-- Right bar -->
+  <path d="M 330,100 L 380,100 L 380,460 L 330,460 Z"
+        fill="#EDE080" stroke="#D4C070" stroke-width="1.2"/>
+
+  <!-- Inner highlight bevel on top bar -->
+  <path d="M 28,28 L 372,28 L 372,36 L 28,36 Z"
+        fill="rgba(255,252,210,0.5)"/>
+  <!-- Inner shadow line top bar -->
+  <path d="M 28,92 L 372,92 L 372,100 L 28,100 Z"
+        fill="rgba(180,150,40,0.25)"/>
+
+  <!-- Bevel highlights on side bars -->
+  <path d="M 20,108 L 30,108 L 30,452 L 20,452 Z"
+        fill="rgba(255,252,210,0.4)"/>
+  <path d="M 370,108 L 380,108 L 380,452 L 370,452 Z"
+        fill="rgba(255,252,210,0.4)"/>
+
+  <!-- =====================================================
+       INNER FRAME EDGE (opening border)
+       ===================================================== -->
+  <!-- Inner beveled edge -->
+  <rect x="70" y="100" width="260" height="360" rx="3" ry="3"
+        fill="none" stroke="#C8B860" stroke-width="2"/>
+  <rect x="74" y="104" width="252" height="352" rx="2" ry="2"
+        fill="none" stroke="rgba(240,220,140,0.5)" stroke-width="1"/>
+  <!-- Shadow on inner edge -->
+  <rect x="72" y="102" width="256" height="356" rx="2" ry="2"
+        fill="none" stroke="rgba(130,100,20,0.3)" stroke-width="1.5"/>
+
+  <!-- =====================================================
+       CORNER SCROLLWORK — four ornate baroque corners
+       ===================================================== -->
+  <!-- TOP-LEFT corner scrollwork -->
+  <g transform="translate(20,20)">
+    <!-- Large outer scroll -->
+    <path d="M 0,0 C 0,20 10,35 25,40 C 40,45 55,35 55,20 C 55,10 48,4 40,8 C 32,12 30,22 36,28 C 40,32 46,30 46,25"
+          fill="none" stroke="#C8B060" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Inner curl -->
+    <path d="M 0,0 C 15,0 28,8 30,20 C 32,30 26,38 18,38 C 12,38 8,34 10,28"
+          fill="none" stroke="#D4C070" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Leaf accent -->
+    <path d="M 48,8 C 52,4 58,2 62,6 C 60,12 54,14 48,8 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 8,48 C 4,52 2,58 6,62 C 12,60 14,54 8,48 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <!-- Small diamond accent -->
+    <path d="M 62,62 L 68,68 L 62,74 L 56,68 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+  </g>
+
+  <!-- TOP-RIGHT corner scrollwork (mirror of TL) -->
+  <g transform="translate(380,20) scale(-1,1)">
+    <path d="M 0,0 C 0,20 10,35 25,40 C 40,45 55,35 55,20 C 55,10 48,4 40,8 C 32,12 30,22 36,28 C 40,32 46,30 46,25"
+          fill="none" stroke="#C8B060" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 0,0 C 15,0 28,8 30,20 C 32,30 26,38 18,38 C 12,38 8,34 10,28"
+          fill="none" stroke="#D4C070" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 48,8 C 52,4 58,2 62,6 C 60,12 54,14 48,8 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 8,48 C 4,52 2,58 6,62 C 12,60 14,54 8,48 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 62,62 L 68,68 L 62,74 L 56,68 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+  </g>
+
+  <!-- BOTTOM-LEFT corner scrollwork -->
+  <g transform="translate(20,540) scale(1,-1)">
+    <path d="M 0,0 C 0,20 10,35 25,40 C 40,45 55,35 55,20 C 55,10 48,4 40,8 C 32,12 30,22 36,28 C 40,32 46,30 46,25"
+          fill="none" stroke="#C8B060" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 0,0 C 15,0 28,8 30,20 C 32,30 26,38 18,38 C 12,38 8,34 10,28"
+          fill="none" stroke="#D4C070" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 48,8 C 52,4 58,2 62,6 C 60,12 54,14 48,8 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 8,48 C 4,52 2,58 6,62 C 12,60 14,54 8,48 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 62,62 L 68,68 L 62,74 L 56,68 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+  </g>
+
+  <!-- BOTTOM-RIGHT corner scrollwork -->
+  <g transform="translate(380,540) scale(-1,-1)">
+    <path d="M 0,0 C 0,20 10,35 25,40 C 40,45 55,35 55,20 C 55,10 48,4 40,8 C 32,12 30,22 36,28 C 40,32 46,30 46,25"
+          fill="none" stroke="#C8B060" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 0,0 C 15,0 28,8 30,20 C 32,30 26,38 18,38 C 12,38 8,34 10,28"
+          fill="none" stroke="#D4C070" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 48,8 C 52,4 58,2 62,6 C 60,12 54,14 48,8 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 8,48 C 4,52 2,58 6,62 C 12,60 14,54 8,48 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 62,62 L 68,68 L 62,74 L 56,68 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+  </g>
+
+  <!-- =====================================================
+       TOP CENTER FLORAL DECORATION (rose/lotus)
+       ===================================================== -->
+  <g transform="translate(200,60)">
+    <!-- Curling stems left -->
+    <path d="M 0,0 C -18,-8 -40,-6 -55,-2 C -65,0 -75,5 -80,12"
+          fill="none" stroke="#C8B060" stroke-width="2" stroke-linecap="round"/>
+    <path d="M -55,-2 C -55,-12 -48,-20 -42,-18 C -38,-16 -36,-10 -40,-6"
+          fill="none" stroke="#D4C070" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Small leaf left -->
+    <path d="M -60,2 C -66,-4 -72,-4 -72,2 C -70,8 -62,8 -60,2 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.9"/>
+    <!-- Another leaf left -->
+    <path d="M -44,-10 C -48,-16 -54,-16 -54,-10 C -52,-4 -46,-4 -44,-10 Z"
+          fill="#EDE090" stroke="#C8B060" stroke-width="0.8"/>
+    <!-- Bud on left stem -->
+    <path d="M -80,12 C -84,8 -88,6 -88,10 C -88,16 -82,18 -80,12 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="0.9"/>
+
+    <!-- Curling stems right (mirror) -->
+    <path d="M 0,0 C 18,-8 40,-6 55,-2 C 65,0 75,5 80,12"
+          fill="none" stroke="#C8B060" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 55,-2 C 55,-12 48,-20 42,-18 C 38,-16 36,-10 40,-6"
+          fill="none" stroke="#D4C070" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 60,2 C 66,-4 72,-4 72,2 C 70,8 62,8 60,2 Z"
+          fill="#E8D880" stroke="#C8B060" stroke-width="0.9"/>
+    <path d="M 44,-10 C 48,-16 54,-16 54,-10 C 52,-4 46,-4 44,-10 Z"
+          fill="#EDE090" stroke="#C8B060" stroke-width="0.8"/>
+    <path d="M 80,12 C 84,8 88,6 88,10 C 88,16 82,18 80,12 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="0.9"/>
+
+    <!-- Center lotus/rose — outer petals -->
+    <path d="M 0,-22 C -10,-30 -20,-25 -18,-14 C -16,-6 -8,-2 0,-2 C 8,-2 16,-6 18,-14 C 20,-25 10,-30 0,-22 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+    <!-- Left outer petal -->
+    <path d="M -2,-8 C -14,-10 -22,-6 -22,2 C -22,10 -14,14 -6,12 C -4,10 -2,6 -2,-8 Z"
+          fill="#EDE080" stroke="#C8B060" stroke-width="1"/>
+    <!-- Right outer petal -->
+    <path d="M 2,-8 C 14,-10 22,-6 22,2 C 22,10 14,14 6,12 C 4,10 2,6 2,-8 Z"
+          fill="#EDE080" stroke="#C8B060" stroke-width="1"/>
+    <!-- Lower-left petal -->
+    <path d="M -4,2 C -12,8 -14,16 -8,18 C -2,20 4,16 2,8 C 0,4 -4,2 -4,2 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+    <!-- Lower-right petal -->
+    <path d="M 4,2 C 12,8 14,16 8,18 C 2,20 -4,16 -2,8 C 0,4 4,2 4,2 Z"
+          fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+    <!-- Center inner circle -->
+    <circle cx="0" cy="4" r="7" fill="#F5EAC0" stroke="#D4C070" stroke-width="1.2"/>
+    <circle cx="0" cy="4" r="4.5" fill="#EDE080" stroke="#C8B060" stroke-width="0.8"/>
+    <circle cx="0" cy="4" r="2" fill="#D4C070"/>
+    <!-- Stamen dots -->
+    <circle cx="-2" cy="2" r="0.8" fill="#B09040"/>
+    <circle cx="2" cy="2" r="0.8" fill="#B09040"/>
+    <circle cx="0" cy="1" r="0.8" fill="#B09040"/>
+    <circle cx="-2" cy="6" r="0.8" fill="#B09040"/>
+    <circle cx="2" cy="6" r="0.8" fill="#B09040"/>
+  </g>
+
+  <!-- =====================================================
+       SIDE PILLAR LATTICE/DIAMOND PATTERN
+       Left pillar (x: 20-70, y: 100-460)
+       ===================================================== -->
+  <!-- Diamond lattice, left pillar -->
+  <g opacity="0.7">
+    <!-- Row of diamonds, left pillar -->
+    <path d="M 45,115 L 55,130 L 45,145 L 35,130 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,148 L 55,163 L 45,178 L 35,163 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,181 L 55,196 L 45,211 L 35,196 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,214 L 55,229 L 45,244 L 35,229 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,247 L 55,262 L 45,277 L 35,262 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,280 L 55,295 L 45,310 L 35,295 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,313 L 55,328 L 45,343 L 35,328 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,346 L 55,361 L 45,376 L 35,361 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,379 L 55,394 L 45,409 L 35,394 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 45,412 L 55,427 L 45,442 L 35,427 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <!-- Small fill dots in diamonds -->
+    <circle cx="45" cy="130" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="163" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="196" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="229" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="262" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="295" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="328" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="361" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="394" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="45" cy="427" r="2" fill="#D4C070" opacity="0.6"/>
+
+    <!-- Vertical center line, left pillar -->
+    <line x1="45" y1="100" x2="45" y2="460" stroke="#C8B060" stroke-width="0.8" opacity="0.4"/>
+    <!-- Outer edge bevel line -->
+    <line x1="25" y1="105" x2="25" y2="455" stroke="rgba(255,252,210,0.4)" stroke-width="1.2"/>
+    <line x1="65" y1="105" x2="65" y2="455" stroke="rgba(130,100,20,0.3)" stroke-width="1"/>
+
+    <!-- Right pillar — mirror -->
+    <path d="M 355,115 L 365,130 L 355,145 L 345,130 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,148 L 365,163 L 355,178 L 345,163 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,181 L 365,196 L 355,211 L 345,196 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,214 L 365,229 L 355,244 L 345,229 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,247 L 365,262 L 355,277 L 345,262 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,280 L 365,295 L 355,310 L 345,295 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,313 L 365,328 L 355,343 L 345,328 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,346 L 365,361 L 355,376 L 345,361 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,379 L 365,394 L 355,409 L 345,394 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 355,412 L 365,427 L 355,442 L 345,427 Z" fill="none" stroke="#C8B060" stroke-width="1"/>
+    <circle cx="355" cy="130" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="163" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="196" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="229" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="262" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="295" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="328" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="361" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="394" r="2" fill="#D4C070" opacity="0.6"/>
+    <circle cx="355" cy="427" r="2" fill="#D4C070" opacity="0.6"/>
+    <line x1="355" y1="100" x2="355" y2="460" stroke="#C8B060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="335" y1="105" x2="335" y2="455" stroke="rgba(255,252,210,0.4)" stroke-width="1.2"/>
+    <line x1="375" y1="105" x2="375" y2="455" stroke="rgba(130,100,20,0.3)" stroke-width="1"/>
+  </g>
+
+  <!-- =====================================================
+       TOP BAR DECORATION — running scroll border
+       ===================================================== -->
+  <!-- Horizontal rope/chain ornament on top bar -->
+  <g opacity="0.8">
+    <path d="M 75,60 C 85,52 95,68 105,60 C 115,52 125,68 135,60 C 145,52 155,68 165,60 C 175,52 185,68 195,60"
+          fill="none" stroke="#C8B060" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 205,60 C 215,52 225,68 235,60 C 245,52 255,68 265,60 C 275,52 285,68 295,60 C 305,52 315,68 325,60"
+          fill="none" stroke="#C8B060" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Mirror right half already on right side -->
+
+    <!-- Thin lines framing top bar interior -->
+    <line x1="20" y1="36" x2="380" y2="36" stroke="#D4C070" stroke-width="0.8" opacity="0.5"/>
+    <line x1="20" y1="84" x2="380" y2="84" stroke="#D4C070" stroke-width="0.8" opacity="0.5"/>
+  </g>
+
+  <!-- =====================================================
+       BOTTOM BAR DECORATION — mirrored
+       ===================================================== -->
+  <g opacity="0.8">
+    <!-- Center floral motif at bottom -->
+    <path d="M 200,500 C 188,488 180,476 188,468 C 196,460 210,464 212,476 C 214,484 208,494 200,500 Z"
+          fill="#EDE080" stroke="#C8B060" stroke-width="1"/>
+    <path d="M 200,500 C 212,488 220,476 212,468 C 204,460 190,464 188,476 C 186,484 192,494 200,500 Z"
+          fill="#EDE080" stroke="#C8B060" stroke-width="1"/>
+    <circle cx="200" cy="500" r="5" fill="#F5EAC0" stroke="#C8B060" stroke-width="1"/>
+    <!-- Horizontal lines framing bottom bar -->
+    <line x1="20" y1="476" x2="380" y2="476" stroke="#D4C070" stroke-width="0.8" opacity="0.5"/>
+    <line x1="20" y1="524" x2="380" y2="524" stroke="#D4C070" stroke-width="0.8" opacity="0.5"/>
+  </g>
+
+  <!-- =====================================================
+       EMBOSSED OUTER RIM (shadow/highlight for carved look)
+       ===================================================== -->
+  <!-- Highlight top-left -->
+  <path d="M 12,12 L 388,12 L 388,16 L 12,16 Z"
+        fill="rgba(255,252,220,0.5)"/>
+  <path d="M 12,12 L 16,12 L 16,548 L 12,548 Z"
+        fill="rgba(255,252,220,0.5)"/>
+  <!-- Shadow bottom-right -->
+  <path d="M 12,548 L 388,548 L 388,544 L 12,544 Z"
+        fill="rgba(140,110,20,0.3)"/>
+  <path d="M 388,548 L 388,12 L 384,12 L 384,548 Z"
+        fill="rgba(140,110,20,0.3)"/>
+
+  <!-- =====================================================
+       INNER OPENING SHADOW (embossed inner edge)
+       ===================================================== -->
+  <rect x="70" y="100" width="260" height="360"
+        fill="none" stroke="rgba(100,80,10,0.2)" stroke-width="3"/>
+  <!-- Glint on inner top-left edge -->
+  <path d="M 72,102 L 328,102 L 328,104 L 72,104 Z"
+        fill="rgba(255,252,210,0.35)"/>
+  <path d="M 72,102 L 74,102 L 74,458 L 72,458 Z"
+        fill="rgba(255,252,210,0.35)"/>
+
+</svg>
