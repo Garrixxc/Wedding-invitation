@@ -2490,3 +2490,86 @@ body {
 .shri-ganesh {
   margin-bottom: 1rem;
 }
+
+/* ============================================================
+   HERO LAYOUT & FONT VISIBILITY FIXES
+   ============================================================ */
+
+/* Pin Ganesh text to the very top of the hero, centred below nav */
+.hero > .shri-ganesh {
+  position: absolute;
+  top: 72px;                          /* just below the 60px navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 1.05rem;
+  letter-spacing: 4px;
+  color: rgba(255, 238, 190, 0.95);
+  text-shadow:
+    0 0 18px rgba(232, 160, 32, 0.75),
+    0 1px 10px rgba(0, 0, 0, 0.65);
+}
+
+/* Push the main content (names, date, countdown) to the lower half
+   so the couple illustration is visible above it */
+.hero-content {
+  align-self: flex-end;   /* override hero's align-items:center */
+  padding-bottom: 7vh;
+  padding-top: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Names — strong shadow so they lift off the illustrated background */
+.hero-heading {
+  text-shadow:
+    0 2px 24px rgba(0, 0, 0, 0.55),
+    0 0  40px rgba(0, 0, 0, 0.30);
+  margin-bottom: 0.5rem;
+}
+
+/* Extra breathing room between names and date */
+.hero-date {
+  margin-top: 1.2rem;
+}
+
+/* Extra breathing room between date and countdown */
+.countdown-wrapper {
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Date pill — slightly brighter / more opaque so it pops on the video */
+.date-line {
+  background: rgba(232, 160, 32, 0.22);
+  border-color: rgba(232, 160, 32, 0.6);
+  color: #FFE9A0;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+/* Countdown label & sublabel — off-white with shadow for legibility */
+.countdown-label,
+.countdown-sublabel {
+  color: rgba(255, 238, 190, 0.85);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.55);
+}
+
+/* Countdown cards — slightly stronger border + shadow */
+.flip-card {
+  border-color: rgba(232, 160, 32, 0.65);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(232,160,32,0.2);
+}
+
+/* Flip numbers — ivory white so they're crisp */
+.flip-num {
+  color: #FFF0C0;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Scroll cue */
+.hero-scroll-cue {
+  color: rgba(255, 238, 190, 0.7);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
