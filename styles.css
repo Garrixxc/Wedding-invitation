@@ -7,29 +7,29 @@
 
 /* ---------- CSS VARIABLES ---------- */
 :root {
-  /* --- LUXURY MAROON & GOLD PALETTE --- */
-  --maroon-dark: #0d0303;
-  --maroon: #6B1414;
-  --maroon-light: #8B2020;
-  --gold: #E8A020;
-  --gold-light: #F0C040;
-  --gold-pale: #F5DDB0;
-  
-  --ivory: #FDF3DC;
-  --ivory-dark: #F5DDB0;
-  --saffron: #F5A623;
+  /* --- SOFT LAVENDER + DEEP INDIGO + DUSTY ROSE + CHAMPAGNE PALETTE --- */
+  --maroon-dark: #080614;
+  --maroon: #1E1438;
+  --maroon-light: #3D2468;
+  --gold: #B89ED8;
+  --gold-light: #D4C4EE;
+  --gold-pale: #EDE4FF;
+
+  --ivory: #FAF8FF;
+  --ivory-dark: #EDE4FF;
+  --saffron: #C4909C;
   --white: #FFFFFF;
-  
-  --text-primary: #F0C040; /* Gold for headings */
-  --text-body: #F5DDB0;    /* Ivory for body */
-  --text-light: #FAC775;   /* Amber for subtext */
-  --text-dark: #3D0C0C;    /* Dark maroon for contrast if needed */
+
+  --text-primary: #D4C4EE; /* Pale lavender for headings */
+  --text-body: #DDD0F0;    /* Lavender for body */
+  --text-light: #C0AEE0;   /* Soft lavender for subtext */
+  --text-dark: #180E2E;    /* Dark purple for contrast if needed */
 
   --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
   --font-devanagari: 'Noto Serif Devanagari', serif;
 
-  --shadow-gold: 0 4px 30px rgba(232, 160, 32, 0.3);
+  --shadow-gold: 0 4px 30px rgba(184, 158, 216, 0.3);
   --border-radius: 16px;
   --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -64,15 +64,15 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2.5rem;
-  background: rgba(61, 12, 12, 0.85);
+  background: rgba(12, 8, 28, 0.85);
   backdrop-filter: blur(12px);
-  border-bottom: 2px solid rgba(232, 160, 32, 0.4);
+  border-bottom: 2px solid rgba(184, 158, 216, 0.4);
   transition: var(--transition);
 }
 
 .navbar.scrolled {
   padding: 0.6rem 2.5rem;
-  background: rgba(61, 12, 12, 0.95);
+  background: rgba(12, 8, 28, 0.95);
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
@@ -176,9 +176,9 @@ body {
   background: linear-gradient(
     90deg,
     var(--maroon) 0%,
-    var(--gold) 35%,
-    var(--gold-light) 50%,
-    var(--gold) 65%,
+    var(--gold-light) 35%,
+    var(--ivory) 50%,
+    var(--gold-light) 65%,
     var(--maroon) 100%
   );
   background-size: 200% auto;
@@ -213,7 +213,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: #0d0303; /* photo fallback */
+  background: #080614; /* photo fallback */
 }
 
 /* ---- Couple photo background ---- */
@@ -318,9 +318,9 @@ body {
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(232, 160, 32, 0.05) 25%,
-    rgba(248, 210, 90,  0.13) 50%,
-    rgba(232, 160, 32, 0.05) 75%,
+    rgba(184, 158, 216, 0.05) 25%,
+    rgba(212, 196, 238, 0.13) 50%,
+    rgba(184, 158, 216, 0.05) 75%,
     transparent 100%
   );
   transform: rotate(-18deg);
@@ -365,7 +365,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(107, 20, 20, 0.48);
+  background: rgba(30, 20, 56, 0.48);
   mix-blend-mode: multiply;
 }
 
@@ -378,15 +378,15 @@ body {
       45deg,
       transparent,
       transparent 8px,
-      rgba(232, 160, 32, 0.04) 8px,
-      rgba(232, 160, 32, 0.04) 9px
+      rgba(184, 158, 216, 0.04) 8px,
+      rgba(184, 158, 216, 0.04) 9px
     ),
     repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 8px,
-      rgba(232, 160, 32, 0.04) 8px,
-      rgba(232, 160, 32, 0.04) 9px
+      rgba(184, 158, 216, 0.04) 8px,
+      rgba(184, 158, 216, 0.04) 9px
     );
   animation: textureDrift 20s linear infinite;
 }
@@ -402,16 +402,16 @@ body {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(to bottom,  rgba(20, 4, 4, 0.72) 0%,  rgba(61,12,12,0.25) 18%, transparent 40%),
-    linear-gradient(to top,     rgba(20, 4, 4, 0.96) 0%,  rgba(61,12,12,0.55) 28%, transparent 52%),
-    radial-gradient(ellipse at center, transparent 35%, rgba(20, 4, 4, 0.45) 100%);
+    linear-gradient(to bottom,  rgba(8, 4, 18, 0.72) 0%,  rgba(8, 4, 18, 0.25) 18%, transparent 40%),
+    linear-gradient(to top,     rgba(8, 4, 18, 0.96) 0%,  rgba(8, 4, 18, 0.55) 28%, transparent 52%),
+    radial-gradient(ellipse at center, transparent 35%, rgba(8, 4, 18, 0.45) 100%);
 }
 
 .rangoli-bg {
   position: absolute;
   inset: 0;
   z-index: 3;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(232,160,32,0.06)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='rgba(232,160,32,0.05)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='rgba(232,160,32,0.05)' stroke-width='1'/%3E%3Cpath d='M100 20 L112 60 L100 50 L88 60 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M100 180 L112 140 L100 150 L88 140 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M20 100 L60 112 L50 100 L60 88 Z' fill='rgba(232,160,32,0.07)'/%3E%3Cpath d='M180 100 L140 112 L150 100 L140 88 Z' fill='rgba(232,160,32,0.07)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(184,158,216,0.06)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='60' fill='none' stroke='rgba(184,158,216,0.05)' stroke-width='1'/%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='rgba(184,158,216,0.05)' stroke-width='1'/%3E%3Cpath d='M100 20 L112 60 L100 50 L88 60 Z' fill='rgba(184,158,216,0.07)'/%3E%3Cpath d='M100 180 L112 140 L100 150 L88 140 Z' fill='rgba(184,158,216,0.07)'/%3E%3Cpath d='M20 100 L60 112 L50 100 L60 88 Z' fill='rgba(184,158,216,0.07)'/%3E%3Cpath d='M180 100 L140 112 L150 100 L140 88 Z' fill='rgba(184,158,216,0.07)'/%3E%3C/svg%3E");
   background-size: 300px 300px;
   animation: rangoliSpin 60s linear infinite;
   opacity: 0.8;
@@ -438,7 +438,7 @@ body {
   margin: 0 auto;
   width: 90px;
   height: 90px;
-  filter: drop-shadow(0 0 20px rgba(232, 160, 32, 0.8));
+  filter: drop-shadow(0 0 20px rgba(184, 158, 216, 0.8));
   animation: kalashPulse 2s ease-in-out infinite alternate;
   display: flex;
   justify-content: center;
@@ -452,8 +452,8 @@ body {
 }
 
 @keyframes kalashPulse {
-  from { transform: scale(1); filter: drop-shadow(0 0 15px rgba(232,160,32,0.6)); }
-  to { transform: scale(1.1); filter: drop-shadow(0 0 30px rgba(232,160,32,1)); }
+  from { transform: scale(1); filter: drop-shadow(0 0 15px rgba(184,158,216,0.6)); }
+  to { transform: scale(1.1); filter: drop-shadow(0 0 30px rgba(184,158,216,1)); }
 }
 
 .shri-ganesh {
@@ -462,7 +462,7 @@ body {
   font-size: 1.3rem;
   letter-spacing: 3px;
   margin-top: 0.5rem;
-  text-shadow: 0 0 20px rgba(232,160,32,0.5);
+  text-shadow: 0 0 20px rgba(184,158,216,0.5);
 }
 
 .hero-heading {
@@ -471,14 +471,14 @@ body {
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 1rem;
-  /* Override shimmer for hero to use lighter colors */
+  /* Override shimmer for hero to use lavender shimmer colors */
   background: linear-gradient(
     90deg,
-    #FAF6F0 0%,
-    var(--gold-light) 30%,
-    #FFE082 50%,
-    var(--gold-light) 70%,
-    #FAF6F0 100%
+    #C4A0DC 0%,
+    #E8D8FF 30%,
+    #FFF0F8 50%,
+    #E8D8FF 70%,
+    #C4A0DC 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -512,8 +512,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
-  background: rgba(232, 160, 32, 0.15);
-  border: 1px solid rgba(232, 160, 32, 0.4);
+  background: rgba(184, 158, 216, 0.15);
+  border: 1px solid rgba(184, 158, 216, 0.4);
   border-radius: 50px;
   padding: 0.6rem 1.8rem;
   color: var(--gold-light);
@@ -550,15 +550,15 @@ body {
 }
 
 .flip-card {
-  background: linear-gradient(160deg, rgba(232,160,32,0.25), rgba(107,20,20,0.5));
-  border: 2px solid rgba(232, 160, 32, 0.5);
+  background: linear-gradient(160deg, rgba(184,158,216,0.2), rgba(30,20,60,0.55));
+  border: 2px solid rgba(184, 158, 216, 0.5);
   border-radius: 12px;
   width: 80px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(232,160,32,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(184,158,216,0.2);
   position: relative;
   overflow: hidden;
   transition: transform 0.15s ease;
@@ -582,7 +582,7 @@ body {
 }
 
 .flip-label {
-  color: rgba(255,255,255,0.5);
+  color: rgba(220, 200, 255, 0.6);
   font-size: 0.65rem;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -711,8 +711,8 @@ body {
   text-align: center;
   width: 300px;
   position: relative;
-  box-shadow: 0 8px 40px rgba(107, 20, 20, 0.12);
-  border: 1px solid rgba(232, 160, 32, 0.2);
+  box-shadow: 0 8px 40px rgba(30, 20, 56, 0.12);
+  border: 1px solid rgba(184, 158, 216, 0.2);
   transition: var(--transition);
   overflow: hidden;
 }
@@ -727,7 +727,7 @@ body {
 
 .couple-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(107, 20, 20, 0.4), 0 0 0 2px var(--gold-light);
+  box-shadow: 0 20px 60px rgba(30, 20, 56, 0.4), 0 0 0 2px var(--gold-light);
 }
 
 .card-flower-top {
@@ -864,8 +864,8 @@ body {
 .divider-mandala { font-size: 1.2rem; }
 .divider-heart {
   font-size: 2rem;
-  color: var(--maroon);
-  filter: drop-shadow(0 0 8px rgba(107,20,20,0.4));
+  color: var(--saffron);
+  filter: drop-shadow(0 0 8px rgba(196,144,156,0.4));
   animation: heartbeat 1.5s ease-in-out infinite;
 }
 
@@ -892,8 +892,8 @@ body {
 }
 
 .icon-small { width: 18px; height: 18px; }
-.icon-gold { color: #E8A020; }
-.icon-maroon { color: #6B1414; }
+.icon-gold { color: #B89ED8; }
+.icon-maroon { color: #3D2468; }
 
 .name-divider-container {
   display: inline-flex;
@@ -907,7 +907,7 @@ body {
 .name-divider-svg {
   width: 100%;
   height: 24px;
-  color: #E8A020;
+  color: #B89ED8;
 }
 
 .om-symbol {
@@ -920,7 +920,7 @@ body {
 
 /* ---------- HALDI SECTION ---------- */
 .haldi-section {
-  background: #3D1A00;
+  background: linear-gradient(135deg, #0E0A1E 0%, #1E1438 50%, #140C2A 100%);
   position: relative;
   overflow: visible;
   border-top: 2px solid var(--gold);
@@ -935,8 +935,8 @@ body {
     60deg,
     transparent,
     transparent 20px,
-    rgba(200, 150, 10, 0.04) 20px,
-    rgba(200, 150, 10, 0.04) 21px
+    rgba(184, 158, 216, 0.04) 20px,
+    rgba(184, 158, 216, 0.04) 21px
   );
 }
 
@@ -967,7 +967,7 @@ body {
 .haldi-title {
   color: var(--saffron) !important;
   -webkit-text-fill-color: var(--saffron) !important;
-  text-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+  text-shadow: 0 4px 15px rgba(196, 144, 156, 0.3);
 }
 
 .haldi-subtitle {
@@ -991,7 +991,7 @@ body {
   flex: 1;
   min-width: 320px;
   max-width: 500px;
-  background: rgba(40, 20, 0, 0.4);
+  background: rgba(20, 12, 42, 0.4);
   border-radius: 20px;
   padding: 2.5rem 2rem;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
@@ -1004,7 +1004,7 @@ body {
 .haldi-card-header {
   text-align: center;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(245, 166, 35, 0.2);
+  border-bottom: 1px solid rgba(184, 158, 216, 0.2);
   padding-bottom: 1.5rem;
 }
 
@@ -1045,7 +1045,7 @@ body {
 }
 
 .haldi-detail-row p {
-  color: #FFE082;
+  color: #D4C4EE;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -1061,7 +1061,7 @@ body {
   justify-content: center;
   gap: 1rem;
   font-size: 2rem;
-  filter: drop-shadow(0 0 10px rgba(245, 166, 35, 0.5));
+  filter: drop-shadow(0 0 10px rgba(184, 158, 216, 0.5));
   animation: emojiWave 2s ease-in-out infinite;
 }
 
@@ -1082,7 +1082,7 @@ body {
 
 /* ---------- WEDDING SECTION ---------- */
 .wedding-section {
-  background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 100%);
+  background: linear-gradient(135deg, #140C2A 0%, #1E1438 100%);
   color: var(--text-body);
   position: relative;
   overflow: visible;
@@ -1091,7 +1091,7 @@ body {
 .wedding-pattern-bg {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 5 L35 25 L55 25 L40 37 L45 57 L30 45 L15 57 L20 37 L5 25 L25 25 Z' fill='none' stroke='rgba(232,160,32,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 5 L35 25 L55 25 L40 37 L45 57 L30 45 L15 57 L20 37 L5 25 L25 25 Z' fill='none' stroke='rgba(184,158,216,0.06)' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
 
@@ -1121,7 +1121,7 @@ body {
 
 .wedding-detail-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(232, 160, 32, 0.3);
+  border: 1px solid rgba(184, 158, 216, 0.3);
   border-radius: 20px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -1139,7 +1139,7 @@ body {
 .wc-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 12px rgba(232,160,32,0.5));
+  filter: drop-shadow(0 0 12px rgba(184,158,216,0.5));
 }
 
 .wedding-detail-card h3 {
@@ -1173,8 +1173,8 @@ body {
 }
 
 .wc-panchang span {
-  background: rgba(232, 160, 32, 0.1);
-  border: 1px solid rgba(232, 160, 32, 0.3);
+  background: rgba(184, 158, 216, 0.1);
+  border: 1px solid rgba(184, 158, 216, 0.3);
   border-radius: 20px;
   padding: 0.2rem 0.7rem;
   font-size: 0.75rem;
@@ -1187,7 +1187,7 @@ body {
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(232, 160, 32, 0.3);
+  border: 1px solid rgba(184, 158, 216, 0.3);
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
@@ -1207,7 +1207,7 @@ body {
 
 /* ---------- SNEH BHOJAN ---------- */
 .bhojan-section {
-  background: var(--maroon);
+  background: linear-gradient(135deg, #0E0A1E 0%, #1A1030 100%);
 }
 
 .bhojan-card {
@@ -1239,13 +1239,13 @@ body {
 .menu-divider {
   width: 50%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #C8860A, transparent);
+  background: linear-gradient(90deg, transparent, #9878C8, transparent);
   margin: 1.2rem auto;
   opacity: 0.6;
 }
 
 .menu-label {
-  color: #C8860A;
+  color: #9878C8;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -1255,7 +1255,7 @@ body {
 }
 
 .menu-cuisine {
-  color: #F5DDB0;
+  color: #DDD0F0;
   font-size: 18px;
   font-style: italic;
   margin-bottom: 0.6rem;
@@ -1263,15 +1263,15 @@ body {
 }
 
 .menu-welcome {
-  color: #E8A020;
+  color: #B89ED8;
   font-size: 13px;
   font-style: italic;
   font-family: var(--font-devanagari);
 }
 
 .bhojan-details {
-  border-top: 1px solid rgba(107, 20, 20, 0.1);
-  border-bottom: 1px solid rgba(107, 20, 20, 0.1);
+  border-top: 1px solid rgba(61, 36, 104, 0.2);
+  border-bottom: 1px solid rgba(61, 36, 104, 0.2);
   padding: 1.5rem 0;
   margin-bottom: 1.5rem;
 }
@@ -1281,7 +1281,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem 0;
-  border-bottom: 1px dashed rgba(107, 20, 20, 0.2);
+  border-bottom: 1px dashed rgba(61, 36, 104, 0.25);
 }
 
 .bhojan-row:last-child { border-bottom: none; }
@@ -1310,7 +1310,7 @@ body {
 
 /* ---------- RSVP ---------- */
 .rsvp-section {
-  background: var(--maroon);
+  background: linear-gradient(135deg, #1E1438 0%, #140C2A 100%);
   position: relative;
 }
 
@@ -1367,7 +1367,7 @@ body {
 .form-group textarea {
   width: 100%;
   background: var(--maroon);
-  border: 2px solid rgba(232, 160, 32, 0.3);
+  border: 2px solid rgba(184, 158, 216, 0.3);
   border-radius: 12px;
   padding: 0.9rem 1.2rem;
   color: var(--text-body);
@@ -1381,7 +1381,7 @@ body {
 .form-group input[type="text"]:focus,
 .form-group textarea:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.1);
+  box-shadow: 0 0 0 3px rgba(184, 158, 216, 0.1);
 }
 
 .form-group input::placeholder,
@@ -1414,7 +1414,7 @@ body {
 
 .rsvp-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(232, 160, 32, 0.4);
+  box-shadow: 0 8px 25px rgba(184, 158, 216, 0.4);
   background: var(--gold-light);
 }
 
@@ -1465,7 +1465,7 @@ body {
 
 .blessing-card {
   background: var(--maroon-dark);
-  border: 1px solid rgba(232, 160, 32, 0.4);
+  border: 1px solid rgba(184, 158, 216, 0.4);
   border-radius: 16px;
   padding: 1.2rem;
   transition: var(--transition);
@@ -1481,7 +1481,7 @@ body {
 .blessing-card:hover {
   border-color: var(--gold);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(232, 160, 32, 0.2);
+  box-shadow: 0 8px 20px rgba(184, 158, 216, 0.2);
 }
 
 .blessing-card-name {
@@ -1570,7 +1570,7 @@ body {
   width: 170px;
   flex-shrink: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(232, 160, 32, 0.2);
+  border: 1px solid rgba(184, 158, 216, 0.2);
   transition: var(--transition);
 }
 
@@ -1612,7 +1612,7 @@ body {
 
 /* ---------- FOOTER ---------- */
 .footer {
-  background: linear-gradient(160deg, var(--maroon-dark) 0%, #3A0808 100%);
+  background: linear-gradient(160deg, var(--maroon-dark) 0%, #100828 100%);
   color: var(--ivory);
   text-align: center;
   position: relative;
@@ -1630,7 +1630,7 @@ body {
 
 .footer-om {
   font-size: 3rem;
-  filter: drop-shadow(0 0 15px rgba(232,160,32,0.6));
+  filter: drop-shadow(0 0 15px rgba(184,158,216,0.6));
   margin-bottom: 1rem;
 }
 
@@ -1654,7 +1654,7 @@ body {
   max-width: 500px;
   margin: 0 auto 1.5rem;
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(232,160,32,0.2);
+  border: 1px solid rgba(184,158,216,0.2);
   border-radius: 16px;
   padding: 1.5rem;
   display: flex;
@@ -1718,10 +1718,10 @@ body {
     left: 0;
     right: 0;
     height: 70px;
-    background: rgba(43, 8, 8, 0.95);
+    background: rgba(12, 8, 28, 0.95);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(232, 160, 32, 0.3);
+    border-top: 1px solid rgba(184, 158, 216, 0.3);
     z-index: 1000;
     justify-content: space-around;
     align-items: center;
@@ -1837,9 +1837,9 @@ body {
   }
   
   .bride-card {
-    border-right: 1px solid rgba(232,160,32,0.1) !important;
+    border-right: 1px solid rgba(184,158,216,0.1) !important;
   }
-  
+
   .card-flower-top, 
   .couple-divider, 
   .card-floral-border,
@@ -1897,7 +1897,7 @@ body {
 
   /* Haldi Mobile Refinements */
   .haldi-section {
-    background: #3D1A00 !important; /* Revert to Dark Brown */
+    background: linear-gradient(135deg, #0E0A1E 0%, #1E1438 50%, #140C2A 100%) !important; /* Deep indigo/purple */
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
   }
@@ -1922,7 +1922,7 @@ body {
   }
 
   .haldi-details-card.bride {
-    border-right: 1px solid rgba(232, 160, 32, 0.1) !important;
+    border-right: 1px solid rgba(184, 158, 216, 0.1) !important;
   }
 
   .haldi-card-header {
@@ -1992,7 +1992,7 @@ body {
     margin: 1.5rem 0;
     border-radius: 20px;
     overflow: hidden;
-    border: 2px solid rgba(232, 160, 32, 0.3);
+    border: 2px solid rgba(184, 158, 216, 0.3);
   }
   
   .static-map-img {
@@ -2050,7 +2050,7 @@ body {
   }
   
   .blessing-card {
-    border: 1.5px solid rgba(232, 160, 32, 0.2) !important;
+    border: 1.5px solid rgba(184, 158, 216, 0.2) !important;
     padding: 1.2rem !important;
   }
 
@@ -2126,7 +2126,7 @@ body {
 
 .loading-spinner {
   width: 40px; height: 40px;
-  border: 3px solid rgba(232, 160, 32, 0.2);
+  border: 3px solid rgba(184, 158, 216, 0.2);
   border-top-color: var(--gold);
   border-radius: 50%;
   margin: 0 auto 1rem;
@@ -2202,7 +2202,7 @@ body {
 .admin-modal input {
   width: 100%;
   background: rgba(255,255,255,0.08);
-  border: 2px solid rgba(232,160,32,0.3);
+  border: 2px solid rgba(184,158,216,0.3);
   border-radius: 12px;
   padding: 0.9rem 1.2rem;
   color: var(--white);
@@ -2215,7 +2215,7 @@ body {
 
 .admin-modal input:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(232,160,32,0.15);
+  box-shadow: 0 0 0 3px rgba(184,158,216,0.15);
 }
 
 .admin-login-btn {
@@ -2233,7 +2233,7 @@ body {
 
 .admin-login-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 160, 32, 0.4);
+  box-shadow: 0 6px 20px rgba(184, 158, 216, 0.4);
   background: var(--gold-light);
 }
 
@@ -2289,7 +2289,7 @@ body {
   justify-content: space-between;
   padding: 1.2rem 1.5rem;
   background: var(--maroon);
-  border-bottom: 1px solid rgba(232,160,32,0.2);
+  border-bottom: 1px solid rgba(184,158,216,0.2);
 }
 
 .admin-header h3 {
@@ -2305,7 +2305,7 @@ body {
 }
 
 .admin-badge {
-  background: rgba(232, 160, 32, 0.1);
+  background: rgba(184, 158, 216, 0.1);
   border: 1px solid var(--gold-light);
   border-radius: 20px;
   padding: 0.2rem 0.8rem;
@@ -2335,7 +2335,7 @@ body {
 
 .admin-card {
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(232,160,32,0.2);
+  border: 1px solid rgba(184,158,216,0.2);
   border-radius: 14px;
   padding: 1rem;
   margin-bottom: 0.8rem;
@@ -2401,17 +2401,17 @@ body {
    diamond accents. Two opacity variants for dark vs ivory bgs.
    ============================================================ */
 
-/* Dark-section variant: rgba(232,160,32,0.045) on maroon */
+/* Dark-section variant: rgba(184,158,216,0.045) on deep indigo */
 .haldi-section,
 .bhojan-section {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3C!-- Central 8-petal flower --%3E%3Cellipse cx='100' cy='78' rx='7' ry='18' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='100' cy='122' rx='7' ry='18' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='78' cy='100' rx='18' ry='7' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='122' cy='100' rx='18' ry='7' fill='rgba(232,160,32,0.045)'/%3E%3Cellipse cx='87' cy='87' rx='7' ry='17' transform='rotate(-45 87 87)' fill='rgba(232,160,32,0.04)'/%3E%3Cellipse cx='113' cy='87' rx='7' ry='17' transform='rotate(45 113 87)' fill='rgba(232,160,32,0.04)'/%3E%3Cellipse cx='87' cy='113' rx='7' ry='17' transform='rotate(45 87 113)' fill='rgba(232,160,32,0.04)'/%3E%3Cellipse cx='113' cy='113' rx='7' ry='17' transform='rotate(-45 113 113)' fill='rgba(232,160,32,0.04)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(232,160,32,0.05)'/%3E%3C!-- Quarter petals at tile corners --%3E%3Cellipse cx='0' cy='0' rx='7' ry='14' transform='rotate(-45 0 0)' fill='rgba(232,160,32,0.035)'/%3E%3Cellipse cx='200' cy='0' rx='7' ry='14' transform='rotate(45 200 0)' fill='rgba(232,160,32,0.035)'/%3E%3Cellipse cx='0' cy='200' rx='7' ry='14' transform='rotate(45 0 200)' fill='rgba(232,160,32,0.035)'/%3E%3Cellipse cx='200' cy='200' rx='7' ry='14' transform='rotate(-45 200 200)' fill='rgba(232,160,32,0.035)'/%3E%3C!-- Small diamond accents --%3E%3Cpath d='M100 56 L104 62 L100 68 L96 62Z' fill='rgba(232,160,32,0.04)'/%3E%3Cpath d='M100 132 L104 138 L100 144 L96 138Z' fill='rgba(232,160,32,0.04)'/%3E%3Cpath d='M56 100 L62 104 L68 100 L62 96Z' fill='rgba(232,160,32,0.04)'/%3E%3Cpath d='M132 100 L138 104 L144 100 L138 96Z' fill='rgba(232,160,32,0.04)'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3C!-- Central 8-petal flower --%3E%3Cellipse cx='100' cy='78' rx='7' ry='18' fill='rgba(184,158,216,0.045)'/%3E%3Cellipse cx='100' cy='122' rx='7' ry='18' fill='rgba(184,158,216,0.045)'/%3E%3Cellipse cx='78' cy='100' rx='18' ry='7' fill='rgba(184,158,216,0.045)'/%3E%3Cellipse cx='122' cy='100' rx='18' ry='7' fill='rgba(184,158,216,0.045)'/%3E%3Cellipse cx='87' cy='87' rx='7' ry='17' transform='rotate(-45 87 87)' fill='rgba(184,158,216,0.04)'/%3E%3Cellipse cx='113' cy='87' rx='7' ry='17' transform='rotate(45 113 87)' fill='rgba(184,158,216,0.04)'/%3E%3Cellipse cx='87' cy='113' rx='7' ry='17' transform='rotate(45 87 113)' fill='rgba(184,158,216,0.04)'/%3E%3Cellipse cx='113' cy='113' rx='7' ry='17' transform='rotate(-45 113 113)' fill='rgba(184,158,216,0.04)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(184,158,216,0.05)'/%3E%3C!-- Quarter petals at tile corners --%3E%3Cellipse cx='0' cy='0' rx='7' ry='14' transform='rotate(-45 0 0)' fill='rgba(184,158,216,0.035)'/%3E%3Cellipse cx='200' cy='0' rx='7' ry='14' transform='rotate(45 200 0)' fill='rgba(184,158,216,0.035)'/%3E%3Cellipse cx='0' cy='200' rx='7' ry='14' transform='rotate(45 0 200)' fill='rgba(184,158,216,0.035)'/%3E%3Cellipse cx='200' cy='200' rx='7' ry='14' transform='rotate(-45 200 200)' fill='rgba(184,158,216,0.035)'/%3E%3C!-- Small diamond accents --%3E%3Cpath d='M100 56 L104 62 L100 68 L96 62Z' fill='rgba(184,158,216,0.04)'/%3E%3Cpath d='M100 132 L104 138 L100 144 L96 138Z' fill='rgba(184,158,216,0.04)'/%3E%3Cpath d='M56 100 L62 104 L68 100 L62 96Z' fill='rgba(184,158,216,0.04)'/%3E%3Cpath d='M132 100 L138 104 L144 100 L138 96Z' fill='rgba(184,158,216,0.04)'/%3E%3C/svg%3E");
 }
 
 /* Ivory-section variant: slightly stronger so it shows on light bg */
 .couple-section {
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='78' rx='7' ry='18' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='100' cy='122' rx='7' ry='18' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='78' cy='100' rx='18' ry='7' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='122' cy='100' rx='18' ry='7' fill='rgba(200,150,30,0.06)'/%3E%3Cellipse cx='87' cy='87' rx='7' ry='17' transform='rotate(-45 87 87)' fill='rgba(200,150,30,0.055)'/%3E%3Cellipse cx='113' cy='87' rx='7' ry='17' transform='rotate(45 113 87)' fill='rgba(200,150,30,0.055)'/%3E%3Cellipse cx='87' cy='113' rx='7' ry='17' transform='rotate(45 87 113)' fill='rgba(200,150,30,0.055)'/%3E%3Cellipse cx='113' cy='113' rx='7' ry='17' transform='rotate(-45 113 113)' fill='rgba(200,150,30,0.055)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(200,150,30,0.065)'/%3E%3Cellipse cx='0' cy='0' rx='7' ry='14' transform='rotate(-45 0 0)' fill='rgba(200,150,30,0.045)'/%3E%3Cellipse cx='200' cy='0' rx='7' ry='14' transform='rotate(45 200 0)' fill='rgba(200,150,30,0.045)'/%3E%3Cellipse cx='0' cy='200' rx='7' ry='14' transform='rotate(45 0 200)' fill='rgba(200,150,30,0.045)'/%3E%3Cellipse cx='200' cy='200' rx='7' ry='14' transform='rotate(-45 200 200)' fill='rgba(200,150,30,0.045)'/%3E%3Cpath d='M100 56 L104 62 L100 68 L96 62Z' fill='rgba(200,150,30,0.055)'/%3E%3Cpath d='M100 132 L104 138 L100 144 L96 138Z' fill='rgba(200,150,30,0.055)'/%3E%3Cpath d='M56 100 L62 104 L68 100 L62 96Z' fill='rgba(200,150,30,0.055)'/%3E%3Cpath d='M132 100 L138 104 L144 100 L138 96Z' fill='rgba(200,150,30,0.055)'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cellipse cx='100' cy='78' rx='7' ry='18' fill='rgba(140,110,200,0.06)'/%3E%3Cellipse cx='100' cy='122' rx='7' ry='18' fill='rgba(140,110,200,0.06)'/%3E%3Cellipse cx='78' cy='100' rx='18' ry='7' fill='rgba(140,110,200,0.06)'/%3E%3Cellipse cx='122' cy='100' rx='18' ry='7' fill='rgba(140,110,200,0.06)'/%3E%3Cellipse cx='87' cy='87' rx='7' ry='17' transform='rotate(-45 87 87)' fill='rgba(140,110,200,0.055)'/%3E%3Cellipse cx='113' cy='87' rx='7' ry='17' transform='rotate(45 113 87)' fill='rgba(140,110,200,0.055)'/%3E%3Cellipse cx='87' cy='113' rx='7' ry='17' transform='rotate(45 87 113)' fill='rgba(140,110,200,0.055)'/%3E%3Cellipse cx='113' cy='113' rx='7' ry='17' transform='rotate(-45 113 113)' fill='rgba(140,110,200,0.055)'/%3E%3Ccircle cx='100' cy='100' r='6' fill='rgba(140,110,200,0.065)'/%3E%3Cellipse cx='0' cy='0' rx='7' ry='14' transform='rotate(-45 0 0)' fill='rgba(140,110,200,0.045)'/%3E%3Cellipse cx='200' cy='0' rx='7' ry='14' transform='rotate(45 200 0)' fill='rgba(140,110,200,0.045)'/%3E%3Cellipse cx='0' cy='200' rx='7' ry='14' transform='rotate(45 0 200)' fill='rgba(140,110,200,0.045)'/%3E%3Cellipse cx='200' cy='200' rx='7' ry='14' transform='rotate(-45 200 200)' fill='rgba(140,110,200,0.045)'/%3E%3Cpath d='M100 56 L104 62 L100 68 L96 62Z' fill='rgba(140,110,200,0.055)'/%3E%3Cpath d='M100 132 L104 138 L100 144 L96 138Z' fill='rgba(140,110,200,0.055)'/%3E%3Cpath d='M56 100 L62 104 L68 100 L62 96Z' fill='rgba(140,110,200,0.055)'/%3E%3Cpath d='M132 100 L138 104 L144 100 L138 96Z' fill='rgba(140,110,200,0.055)'/%3E%3C/svg%3E");
 }
 
 /* ============================================================
@@ -2503,9 +2503,9 @@ body {
   padding: 0 1rem;
   font-size: 0.95rem;
   letter-spacing: 3px;
-  color: rgba(255, 238, 190, 0.95);
+  color: rgba(212, 196, 238, 0.95);
   text-shadow:
-    0 0 14px rgba(232, 160, 32, 0.8),
+    0 0 14px rgba(184, 158, 216, 0.8),
     0 1px 10px rgba(0, 0, 0, 0.75);
 }
 
@@ -2518,17 +2518,17 @@ body {
   box-sizing: border-box;
 }
 
-/* Names — deep amber→bright gold shimmer with a hard dark outline
+/* Names — deep lavender→pale lavender shimmer with a hard dark outline
    so they pop on BOTH the light cream illustration centre and the
    dark navy sky edges */
 .hero-heading {
   background: linear-gradient(
     90deg,
-    #C87818  0%,
-    #F0B830  30%,
-    #FFE090  50%,
-    #F0B830  70%,
-    #C87818  100%
+    #C4A0DC  0%,
+    #E8D8FF  30%,
+    #FFF0F8  50%,
+    #E8D8FF  70%,
+    #C4A0DC  100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -2547,9 +2547,9 @@ body {
 
 /* Date pill */
 .date-line {
-  background: rgba(232, 160, 32, 0.18);
-  border-color: rgba(232, 160, 32, 0.55);
-  color: #FFE9A0;
+  background: rgba(184, 158, 216, 0.18);
+  border-color: rgba(184, 158, 216, 0.55);
+  color: #EDE4FF;
   text-shadow: 0 1px 8px rgba(0,0,0,0.65);
 }
 
@@ -2559,22 +2559,22 @@ body {
 
 .countdown-label,
 .countdown-sublabel {
-  color: rgba(255, 238, 190, 0.88);
+  color: rgba(220, 200, 255, 0.88);
   text-shadow: 0 1px 8px rgba(0,0,0,0.65);
 }
 
 .flip-card {
-  border-color: rgba(232, 160, 32, 0.6);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(232,160,32,0.2);
+  border-color: rgba(184, 158, 216, 0.6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(184,158,216,0.2);
 }
 
 .flip-num {
-  color: #FFF0C0;
+  color: #E8D8FF;
   text-shadow: 0 1px 6px rgba(0,0,0,0.55);
 }
 
 .hero-scroll-cue {
-  color: rgba(255, 238, 190, 0.65);
+  color: rgba(212, 196, 238, 0.65);
 }
 
 /* ---- Phones ------------------------------------------------ */
