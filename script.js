@@ -9,10 +9,13 @@
   if (!img) return;
 
   const video = document.createElement('video');
-  video.autoplay = true;
-  video.muted = true;
-  video.loop = true;
-  video.playsInline = true;
+  // Set as HTML attributes — required for iOS Safari autoplay
+  video.setAttribute('autoplay', '');
+  video.setAttribute('muted', '');
+  video.setAttribute('loop', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.muted = true; // also set property for good measure
   video.className = 'hero-couple-video';
 
   const source = document.createElement('source');
@@ -20,19 +23,37 @@
   source.type = 'video/mp4';
   video.appendChild(source);
 
-  video.addEventListener('canplay', () => {
-    img.parentNode.insertBefore(video, img);
-    video.style.display = 'block';
-    video.play().catch(() => {});
+  // Insert into DOM immediately (opacity:0) so browser starts loading/autoplay
+  img.parentNode.insertBefore(video, img);
+
+  function activateVideo() {
+    video.style.opacity = '1';
+    video.style.pointerEvents = 'auto';
     document.getElementById('hero')?.classList.add('hero-has-video');
+  }
+
+  video.addEventListener('canplay', () => {
+    const p = video.play();
+    if (p !== undefined) {
+      p.then(activateVideo).catch(() => {
+        // Autoplay still blocked — wait for first user touch then retry
+        const onTouch = () => {
+          video.play().then(activateVideo).catch(() => {});
+          document.removeEventListener('touchstart', onTouch);
+          document.removeEventListener('click', onTouch);
+        };
+        document.addEventListener('touchstart', onTouch, { once: true });
+        document.addEventListener('click', onTouch, { once: true });
+      });
+    } else {
+      activateVideo();
+    }
   });
 
-  // If video errors or takes >4s, fall back to the photo
+  // If video errors or takes >5s to get metadata, fall back to the photo
   const showPhoto = () => { img.style.display = 'block'; };
   video.addEventListener('error', showPhoto);
-  setTimeout(() => { if (video.readyState < 2) showPhoto(); }, 4000);
-
-  img.parentNode.appendChild(video);
+  setTimeout(() => { if (video.readyState < 1) showPhoto(); }, 5000);
 })();
 
 /* ---- HERO BOKEH ORBS ---- */

@@ -255,10 +255,12 @@ body {
 
 /* Video — no filters, no extra motion; the illustration plays as-is */
 .hero-couple-video {
-  display: none;         /* shown by JS once it loads */
+  opacity: 0;            /* hidden until JS confirms it's playing */
+  pointer-events: none;
   object-position: center center;
   filter: none;
   animation: none;
+  transition: opacity 0.6s ease;
 }
 
 @keyframes kenBurns {
@@ -1759,13 +1761,8 @@ body {
   }
 
   /* Section Spacing */
-  .section-pad { 
-    padding: 4rem 1.2rem !important; 
-    scroll-snap-align: start;
-  }
-  
-  html {
-    scroll-snap-type: y proximity;
+  .section-pad {
+    padding: 4rem 1.2rem !important;
   }
 
   /* Hero Mobile Refinements */
