@@ -2573,3 +2573,66 @@ body {
   color: rgba(255, 238, 190, 0.7);
   text-shadow: 0 1px 6px rgba(0,0,0,0.4);
 }
+
+/* ============================================================
+   MOBILE HERO CENTERING + BRIGHTER NAMES — phone-first fixes
+   ============================================================ */
+
+/* Brighter hero names — pure white ↔ vivid gold shimmer.
+   The old #FAF6F0 edge made it look washed out on the illustration. */
+.hero-heading {
+  background: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    #FFD966 28%,
+    #FFE9A0 50%,
+    #FFD966 72%,
+    #FFFFFF 100%
+  ) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: shimmerMove 2.8s linear infinite !important;
+  filter: drop-shadow(0 2px 16px rgba(0,0,0,0.55));
+}
+
+/* Fix hero-content centering: proper padding on all sides,
+   keep it horizontally centred, push lower half on mobile */
+.hero-content {
+  align-self: flex-end;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1.5rem 10vh;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Ganesh text — keep it perfectly centred at top on mobile too */
+.hero > .shri-ganesh {
+  top: 68px;
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  /* On phones give a bit more bottom room so countdown isn't clipped */
+  .hero-content {
+    padding-bottom: 6vh;
+  }
+
+  /* Slightly smaller Ganesh text on narrow screens */
+  .hero > .shri-ganesh {
+    font-size: 0.9rem;
+    letter-spacing: 2.5px;
+    top: 65px;
+  }
+
+  /* Names a touch smaller so they don't crowd the couple */
+  .hero-heading {
+    font-size: clamp(2.4rem, 12vw, 4rem) !important;
+  }
+}
