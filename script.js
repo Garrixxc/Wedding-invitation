@@ -551,14 +551,20 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 /* ===================== PHOTO GALLERY CAROUSEL ===================== */
 (function () {
   const photos = [
-    { src: 'pictures/Gemini_Generated_Image_7lgw8p7lgw8p7lgw.png',   caption: 'The Boatride',          location: 'Ganga · Varanasi' },
-    { src: 'pictures/Gemini_Generated_Image_addswpaddswpadds.png',    caption: 'Sunset on the Ganga',   location: 'Varanasi' },
-    { src: 'pictures/Gemini_Generated_Image_c0owr4c0owr4c0ow.png',    caption: 'Ganga Aarti',           location: 'Dashashwamedh Ghat' },
-    { src: 'pictures/Gemini_Generated_Image_uxssfeuxssfeuxss.png',    caption: 'The Sacred Flame',      location: 'Varanasi' },
-    { src: 'pictures/Gemini_Generated_Image_vypwy0vypwy0vypw.png',    caption: 'Dawn at the Ganga',     location: 'Varanasi' },
-    { src: 'pictures/Gemini_Generated_Image_8wyv528wyv528wyv.png',    caption: 'Together at the Ghats', location: 'Varanasi' },
-    { src: 'pictures/Gemini_Generated_Image_s4owads4owads4ow.png',    caption: 'Golden Hour',           location: 'Varanasi Ghats' },
-    { src: 'pictures/Gemini_Generated_Image_kkrhcxkkrhcxkkrh.png',    caption: 'A Quiet Morning',       location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_pjln27pjln27pjln.png',   caption: 'Eternal Love',           location: 'Taj Mahal · Agra' },
+    { src: 'pictures/Gemini_Generated_Image_1fsjao1fsjao1fsj.png',   caption: 'Above the City',         location: 'Amer Fort · Jaipur' },
+    { src: 'pictures/Gemini_Generated_Image_sfmz13sfmz13sfmz.png',   caption: 'On Still Waters',        location: 'Dal Lake · Kashmir' },
+    { src: 'pictures/Gemini_Generated_Image_k7rfj6k7rfj6k7rf.png',   caption: 'Where the Sky Meets the Lake', location: 'Pangong · Ladakh' },
+    { src: 'pictures/Gemini_Generated_Image_nsovyhnsovyhnsov.png',   caption: 'Under the Full Moon',    location: 'Rann of Kutch' },
+    { src: 'pictures/Gemini_Generated_Image_krnlc3krnlc3krnl.png',   caption: 'A View for Two',         location: 'Hampi · Karnataka' },
+    { src: 'pictures/Gemini_Generated_Image_kfn4j0kfn4j0kfn4.png',   caption: 'Golden Archway',         location: 'Goa' },
+    { src: 'pictures/Gemini_Generated_Image_c0owr4c0owr4c0ow.png',   caption: 'Ganga Aarti',            location: 'Dashashwamedh Ghat · Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_uxssfeuxssfeuxss.png',   caption: 'The Sacred Flame',       location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_7lgw8p7lgw8p7lgw.png',   caption: 'The Boatride',           location: 'Ganga · Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_vypwy0vypwy0vypw.png',   caption: 'Dawn at the Ganga',      location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_8wyv528wyv528wyv.png',   caption: 'Together at the Ghats',  location: 'Varanasi' },
+    { src: 'pictures/Gemini_Generated_Image_s4owads4owads4ow.png',   caption: 'Golden Hour',            location: 'Varanasi Ghats' },
+    { src: 'pictures/Gemini_Generated_Image_kkrhcxkkrhcxkkrh.png',   caption: 'A Quiet Morning',        location: 'Varanasi' },
   ];
 
   const track  = document.getElementById('galleryTrack');
